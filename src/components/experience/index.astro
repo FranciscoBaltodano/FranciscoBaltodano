@@ -2,7 +2,7 @@
 import type { Props } from "./props";
 import IconArrow from "../icons/arrow.astro";
 
-const { dates, title, company, companyUrl, description, technologies, logo } =
+const { dates, title, companyUrl, description, technologies, logo } =
   Astro.props;
 ---
 
@@ -39,14 +39,13 @@ const { dates, title, company, companyUrl, description, technologies, logo } =
                   <img
                     class="w-8 h-8 rounded bg-neutral-400/10 "
                     src={logo}
-                    alt={`${company} logo`}
+                    alt={`${title} logo`}
                   />
                 )
               }
               <span
-                >{title} ·
+                >{title}
                 <span class="inline-block">
-                  {company}
                   <IconArrow />
                 </span>
               </span>
