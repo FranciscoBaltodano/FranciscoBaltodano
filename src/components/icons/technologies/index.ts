@@ -1,6 +1,6 @@
 export { default as astro } from './astro.astro';
 export { default as bootstrap } from './bootstrap.astro';
-export { default as cloudfare } from './cloudfare.astro';
+export { default as cloudflare } from './cloudflare.astro';
 export { default as express } from './express.astro';
 export { default as figma } from './figma.astro';
 export { default as github } from './github.astro';

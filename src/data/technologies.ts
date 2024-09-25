@@ -1,4 +1,4 @@
-import { astro, bootstrap, cloudfare, express, figma, github, javascript, laravelicon, materialui, mongo, netlify, next, node, react, springboot, sqlserver, supabase, tailwind, typescript, vercel, wordpress } from "../components/icons/technologies";
+import { astro, bootstrap, cloudflare, express, figma, github, javascript, laravelicon, materialui, mongo, netlify, next, node, react, springboot, sqlserver, supabase, tailwind, typescript, vercel, wordpress } from "../components/icons/technologies";
 
 export const technologies=[
     {
@@ -13,8 +13,8 @@ export const technologies=[
     },
     {
         category: 'other',
-        name: 'Cloudfare',
-        icon: cloudfare,
+        name: 'Cloudflare',
+        icon: cloudflare,
     },
     {
         category: 'back',
