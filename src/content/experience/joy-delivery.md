@@ -54,6 +54,3 @@ El frontend fue implementado con **Laravel** utilizando **Blade** como motor de 
 El sistema utiliza **MySQL** como base de datos, lo que permite:
 - **Integridad de los datos**: Gestión segura y consistente de la información.
 - **Rendimiento sólido**: Eficiente manejo de grandes volúmenes de datos.
-
-## Conclusión
-Este proyecto ha sido diseñado para crear una plataforma de delivery robusta y confiable, enfocándose en la gestión eficiente de pedidos, la asignación óptima de motoristas y una experiencia de usuario simplificada para los clientes.

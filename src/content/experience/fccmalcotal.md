@@ -36,6 +36,3 @@ El portal también incluye un mecanismo de **recaudación de fondos** para apoya
 - **WordPress**: Se utilizó WordPress como sistema de gestión de contenido (CMS) para facilitar la creación de nuevas publicaciones y la administración del sitio web por parte de los administradores.
 - **PayPal**: Implementado como pasarela de pago para permitir las donaciones en línea, proporcionando una plataforma confiable y segura para los contribuyentes.
 
-## Conclusión
-
-El portal web de la **Fundación Cerro de Cáscaras Malcotal** no solo promueve el turismo y la concientización ambiental, sino que también ofrece una plataforma para la recaudación de fondos, contribuyendo al crecimiento y sostenibilidad de la fundación. Con este proyecto, se espera ampliar el impacto de la organización, tanto en la comunidad local como internacional.
