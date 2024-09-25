@@ -20,7 +20,7 @@ export const SOCIALS = [
     icon: IconTwitter,
   },
   {
-    name: "Dribbble",
+    name: "Instagram",
     url: "https://www.instagram.com/ifranciscobaltodano/",
     icon: IconDribbble,
   },

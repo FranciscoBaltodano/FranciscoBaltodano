@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from "astro:transitions";
 import SparklesCore from "../components/SparklesCore.tsx";
 
 interface Props {
@@ -15,11 +16,12 @@ const { title } = Astro.props;
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/webp" href="/favicon.webp" />
+    <ViewTransitions />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
 
-  <body
+  <body 
     class="bg-black leading-relaxed text-neutral-200 tracking-wide antialiased selection:bg-neutral-300 selection:text-neutral-900 z-10 relative"
   >
     <SparklesCore
@@ -33,6 +35,7 @@ const { title } = Astro.props;
       className="w-full h-full fixed z-0"
       particleColor="#FFFFFF"
     />
+
     <slot />
     <script src="../scripts/main.ts"></script>
   </body>

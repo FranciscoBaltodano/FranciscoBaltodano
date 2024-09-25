@@ -1,4 +1,4 @@
-import { astro, bootstrap, cloudfare, express, figma, github, javascript, laravelicon, materialui, mongo, netlify, next, node, react, springboot, sqlserver, supabase, tailwind, typescript, vercel } from "../components/icons/technologies";
+import { astro, bootstrap, cloudfare, express, figma, github, javascript, laravelicon, materialui, mongo, netlify, next, node, react, springboot, sqlserver, supabase, tailwind, typescript, vercel, wordpress } from "../components/icons/technologies";
 
 export const technologies=[
     {
@@ -100,5 +100,10 @@ export const technologies=[
         category: 'other',
         name: 'Vercel',
         icon: vercel,
-    }
+    },
+    {
+        category: 'other',
+        name: 'Wordpress',
+        icon: wordpress,
+    },
 ]

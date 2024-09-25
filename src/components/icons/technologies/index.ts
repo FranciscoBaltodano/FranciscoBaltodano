@@ -17,4 +17,5 @@ export { default as sqlserver } from './sqlserver.astro';
 export { default as supabase } from './supabase.astro';
 export { default as tailwind } from './tailwind.astro';
 export { default as typescript } from './typescript.astro';
-export { default as vercel } from './vercel.astro';
+export { default as vercel } from './vercel.astro'; 
+export { default as wordpress } from './wordpress.astro'; 

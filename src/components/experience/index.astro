@@ -2,49 +2,53 @@
 import type { Props } from "./props";
 import IconArrow from "../icons/arrow.astro";
 
-const { dates, title, companyUrl, description, technologies, logo } =
-  Astro.props;
+export type ExperienceProps = {
+  slug: string;
+  dates: string;
+  title: string;
+  description: string;
+  technologies: string[];
+  logo?: string;
+  img: string;
+};
+
+const { slug, dates, title, description, technologies, logo, img } =
+  Astro.props as unknown as ExperienceProps;
 ---
 
-<li>
+<div
+  id={slug}
+  class="group mb-14 relative lg:w-4/5 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50 hover:backdrop-blur-sm duration-500"
+>
   <div
-    class="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50 hover:backdrop-blur-sm duration-500"
+    class="absolute -inset-x-4 -inset-y-4 -z-10 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-neutral-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"
   >
-    <div
-      class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-neutral-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"
-    >
-    </div>
-    <header
-      class="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-neutral-500 sm:col-span-2"
-      aria-label={dates}
-    >
-      <span>{dates}</span>
-    </header>
-    <div class="z-10 sm:col-span-6">
+  </div>
+
+  <div class="z-10 flex flex-row w-full sm:col-span-6">
+    <div class="lg:w-1/2 pr-2">
       <h3 class="font-medium leading-snug text-neutral-200">
         <div>
           <a
             class="inline-flex items-baseline font-medium leading-tight text-neutral-200 hover:text-neutral-300 focus-visible:text-neutral-300 group/link text-base"
-            href={companyUrl}
-            target="_blank"
-            rel="noreferrer"
+            href={`experience/${slug}`}
             aria-label={title}
           >
             <span
               class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"
             ></span>
-            <div class="flex gap-x-2 items-center">
+            <div class="flex z-10 gap-x-2 items-center">
               {
                 logo && (
                   <img
-                    class="w-8 h-8 rounded bg-neutral-400/10 "
+                    class="w-8 h-8 rounded bg-neutral-400/10"
                     src={logo}
                     alt={`${title} logo`}
                   />
                 )
               }
-              <span
-                >{title}
+              <span>
+                {title}
                 <span class="inline-block">
                   <IconArrow />
                 </span>
@@ -53,11 +57,19 @@ const { dates, title, companyUrl, description, technologies, logo } =
           </a>
         </div>
       </h3>
-      <p class="mt-2 text-sm leading-normal">
+
+      <header
+        class="z-10 my-4 mt-1 w-1/2 text-xs font-semibold uppercase tracking-wide text-neutral-500 sm:col-span-2"
+        aria-label={dates}
+      >
+        <span>{dates}</span>
+      </header>
+
+      <p class="z-10 mt-2 text-sm text-white leading-normal">
         {description}
       </p>
       {
-        technologies.length && (
+        technologies.length > 0 && ( // Asegúrate de que haya tecnologías
           <ul class="mt-2 flex flex-wrap" aria-label="Technologies used">
             {technologies.map((technology) => (
               <li class="mr-1.5 mt-2">
@@ -70,5 +82,16 @@ const { dates, title, companyUrl, description, technologies, logo } =
         )
       }
     </div>
+    <a
+      href={`experience/${slug}`}
+      class="w-1/2 z-10 p-2 group-hover:scale-105 hidden lg:block group-hover:opacity-100 transition-opacity duration-500"
+    >
+      <img
+        transition:name={`img-${slug}`}
+        src={img}
+        alt={title}
+        class="object-contain w-full h-full"
+      />
+    </a>
   </div>
-</li>
+</div>
