@@ -1,140 +1,188 @@
 ---
-import type { GetStaticPaths } from 'astro';
-import Layout from '../../layouts/Layout.astro';
-import {render, getCollection, type CollectionEntry } from "astro:content";
-import { technologies } from '../../data/technologies';
-import Component from '../../components/Component.astro';
-
-
+import type { GetStaticPaths } from "astro";
+import Layout from "../../layouts/Layout.astro";
+import { render, getCollection, type CollectionEntry } from "astro:content";
+import { technologies } from "../../data/technologies";
+import Component from "../../components/Component.astro";
 type ExperienceProps = {
-  experience: CollectionEntry<'experience'>;
+  experience: CollectionEntry<"experience">;
 };
+
 export const getStaticPaths: GetStaticPaths = async () => {
-  const proyects = await getCollection('experience') as CollectionEntry<'experience'>[];
+  const proyects = (await getCollection(
+    "experience"
+  )) as CollectionEntry<"experience">[];
 
   return proyects.map((experience) => ({
-            params: { id: experience.slug },
-            props: { experience }
-        })
-    );
+    params: { id: experience.slug },
+    props: { experience },
+  }));
 };
 
-const { experience } = Astro.props as ExperienceProps ;
+const { experience } = Astro.props as ExperienceProps;
 const { data, slug } = experience;
-console.log(data);
 
-const { dates, title, description, technologies:techs, logo, img, url } = data;
+const { dates, title, description, technologies: techs, logo, img, url } = data;
 const { Content } = await render(experience);
-
 ---
 
-
 <Layout title={title}>
-  <div class="relative container flex flex-col items-center mx-auto justify-center content-center px-4 py-8 ">
-    <main>
-      <a
-        href=`/#${slug}`
-        class="mb-3 inline-flex items-center bg-gray-800 bg-opacity-20 border border-zinc-800 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-opacity-50 hover:shadow-lg transition-all duration-300 ease-in-out opacity-90 hover:opacity-100"
+  <div class="relative hero z-10">
+    <div
+      class="container flex flex-col items-center mx-auto justify-center content-center px-4 py-8"
+    >
+      <main>
+        <a
+          href=`/#${slug}`
+          class="mb-3 inline-flex items-center bg-gray-800 bg-opacity-20 border border-zinc-800 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-opacity-50 hover:shadow-lg transition-all duration-300 ease-in-out opacity-90 hover:opacity-100"
         >
-        <svg
-          class="w-5 h-5 mr-2"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M15 19l-7-7 7-7"
-          />
-        </svg>
-        Volver atrás
-      </a>
-
-      <!-- <p class="text-gray-700 font-medium md:text-lg">{techs}</p> -->
-  <div class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl" aria-hidden="true">
-    <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
-  </div>
-  <div class="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu" aria-hidden="true">
-    <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
-  </div>
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="mx-auto max-w-2xl lg:mx-0">
-      <div class="flex items-center justify-between content-center ">
-        <h2 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">{title}</h2>
-        <img src={logo} class="rounded-lg w-auto md:h-16 h-8" alt="">
-      </div>
-
-      <p class="text-gray-400 mt-3 text-sm md:text-base">{dates}</p>
-
-      <img transition:name=`img-${slug}` src={img} class=" md:px-28 py-6 sm:px-44 hover:scale-105 transition duration-200" alt="">
-      
-
-      <div class="flex justify-center space-x-4">
-        {url.gitHub && (
-          <a
-            href={url.gitHub}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-block bg-gray-900 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-gray-700 hover:shadow-lg transition-all duration-300 ease-in-out"
+          <svg
+            class="w-5 h-5 mr-2"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <svg class="inline-block w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                fill-rule="evenodd"
-                d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.68-.22.68-.48v-1.69c-2.78.6-3.37-1.34-3.37-1.34-.45-1.14-1.1-1.44-1.1-1.44-.9-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.51 2.34 1.08 2.91.83.09-.65.35-1.08.64-1.33-2.22-.25-4.56-1.11-4.56-4.96 0-1.1.39-2 1.03-2.71-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.03A9.565 9.565 0 0 1 12 6.88c.86.01 1.73.12 2.55.34 1.9-1.3 2.75-1.03 2.75-1.03.55 1.38.21 2.4.1 2.65.64.71 1.03 1.61 1.03 2.71 0 3.86-2.34 4.71-4.57 4.96.36.31.69.92.69 1.85v2.75c0 .27.18.59.69.48C19.13 20.17 22 16.42 22 12c0-5.52-4.48-10-10-10z"
-                clip-rule="evenodd"
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15 19l-7-7 7-7"></path>
+          </svg>
+          Volver atrás
+        </a>
+        <div
+          class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"
+          aria-hidden="true"
+        >
+          <div
+            class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"
+            style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
+          >
+          </div>
+        </div>
+        <div
+          class="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu"
+          aria-hidden="true"
+        >
+          <div
+            class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"
+            style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
+          >
+          </div>
+        </div>
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <div class="mx-auto max-w-2xl lg:mx-0">
+            <div class="flex items-center justify-between content-center">
+              <h2
+                class="text-4xl font-bold tracking-tight text-white sm:text-6xl"
+              >
+                {title}
+              </h2>
+              <img src={logo} class="rounded-lg w-auto md:h-16 h-8" alt="" />
+            </div>
+
+            <p class="text-gray-400 mt-3 text-sm md:text-base">{dates}</p>
+
+            <a
+              class="w-1/2 z-10 p-2 group-hover:scale-105  group-hover:opacity-100 transition-opacity duration-500"
+            >
+              <img
+                transition:name={`img-${slug}`}
+
+                src={img}
+                alt={title}
+                class="object-contain w-full h-full"
               />
-            </svg>
-            GitHub
           </a>
-        )}
-        {url.liveDemo && (
-          <a
-            href={url.liveDemo}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center gap-2 bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg transition-all duration-300 ease-in-out"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-            </svg>
 
-            Ver Sitio
-          </a>
-        )}
-      </div>
-      
+            <div class="flex justify-center space-x-4">
+              {
+                url.gitHub && (
+                  <a
+                    href={url.gitHub}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-block bg-gray-900 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-gray-700 hover:shadow-lg transition-all duration-300 ease-in-out"
+                  >
+                    <svg
+                      class="inline-block w-5 h-5 mr-2"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.68-.22.68-.48v-1.69c-2.78.6-3.37-1.34-3.37-1.34-.45-1.14-1.1-1.44-1.1-1.44-.9-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.51 2.34 1.08 2.91.83.09-.65.35-1.08.64-1.33-2.22-.25-4.56-1.11-4.56-4.96 0-1.1.39-2 1.03-2.71-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.03A9.565 9.565 0 0 1 12 6.88c.86.01 1.73.12 2.55.34 1.9-1.3 2.75-1.03 2.75-1.03.55 1.38.21 2.4.1 2.65.64.71 1.03 1.61 1.03 2.71 0 3.86-2.34 4.71-4.57 4.96.36.31.69.92.69 1.85v2.75c0 .27.18.59.69.48C19.13 20.17 22 16.42 22 12c0-5.52-4.48-10-10-10z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    GitHub
+                  </a>
+                )
+              }
+              {
+                url.liveDemo && (
+                  <a
+                    href={url.liveDemo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center gap-2 bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg transition-all duration-300 ease-in-out"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="size-5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+                      />
+                    </svg>
+                    Ver Sitio
+                  </a>
+                )
+              }
+            </div>
 
+            <div
+              class="prose dark:prose-invert mt-6 text-lg leading-8 text-white prose-headings:text-white prose-strong:text-white"
+            >
+              <Content />
+            </div>
+          </div>
+          <div class="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
+            <div
+              class="grid grid-cols-1 gap-x-8 gap-y-6 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10"
+            >
+              <ul class="flex gap-7 flex-wrap">
+                {
+                  technologies
+                    .filter((tech) => techs.includes(tech.name))
+                    .map((tech) => (
+                      <li class="flex items-center gap-2  rounded-full px-3 hover:scale-105">
+                        <div class="flex items-center justify-center w-6 h-6 ">
+                          <Component component={tech.icon} class="w-10 h-10" />
+                        </div>
+                        <span>{tech.name}</span>
+                      </li>
+                    ))
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
 
-
-      <div class="prose dark:prose-invert mt-6 text-lg leading-8 text-white prose-headings:text-white prose-strong:text-white ">
-        <Content />
-      </div>
-      
-    </div>
-    <div class="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
-      <div class="grid grid-cols-1 gap-x-8 gap-y-6 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
-        
-        
-        <ul class="flex gap-7 flex-wrap">
-          {
-            technologies.filter( tech => techs.includes(tech.name) ).map((tech) => (
-              <li class="flex items-center gap-2  rounded-full px-3 hover:scale-105">
-                <div class="flex items-center justify-center w-6 h-6 ">
-                        <Component component={tech.icon} class="w-10 h-10" />
-                      </div>
-                <span>{tech.name}</span>
-              </li>
-            ))
-            
+        <style>
+          .hero {
+            overflow-y: visible;
+            overflow-x: clip;
           }
-        </ul>
-
-
+        </style>
+      </main>
     </div>
-  </div>
-</Layout>
-
-
+  </div></Layout
+>

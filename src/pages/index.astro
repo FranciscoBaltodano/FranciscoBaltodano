@@ -157,12 +157,11 @@ const proyects = (await getCollection(
                   {
                     technologies.map((tech) => (
                       <li class="hover:scale-150 transition-all relative flex flex-col items-center group">
-                        {/* Ícono */}
+                        
                         <div class="w-12 h-12 flex justify-center items-center">
                           <Component component={tech.icon} class="w-10 h-10" />
                         </div>
 
-                        {/* Nombre visible en hover */}
                         <span class="absolute bottom-0 transform translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 bg-gray-800 text-white text-xs rounded-md px-2 py-1">
                           {tech.name}
                         </span>
@@ -198,11 +197,6 @@ const proyects = (await getCollection(
               }
             </div>
           </section>
-
-        
-
-          <footer class="max-w-md pb-16 text-sm text-neutral-500 sm:pb-0">
-          </footer>
         </main>
       </div>
     </div>
