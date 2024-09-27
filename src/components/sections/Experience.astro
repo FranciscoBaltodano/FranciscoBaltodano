@@ -1,0 +1,33 @@
+---
+import  {getCollection, type CollectionEntry } from "astro:content";
+import ExperienceComponent from "../experience/index.astro";
+
+const proyects = (await getCollection(
+  "experience"
+)) as CollectionEntry<"experience">[];
+---
+
+<section
+    id="experience"
+    class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+    aria-label="experience"
+>
+    <div
+    class="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-3 backdrop-blur-lg md:-mx-12 md:px-12 lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0"
+    >
+    <h2
+        class="text-sm font-bold uppercase tracking-widest text-neutral-200"
+    >
+        Experiencia
+    </h2>
+    </div>
+    <div>
+    {
+        proyects.map((proyect) => {
+        const { slug, data } = proyect;
+
+        return <ExperienceComponent slug={slug} {...data} />;
+        })
+    }
+    </div>
+</section>

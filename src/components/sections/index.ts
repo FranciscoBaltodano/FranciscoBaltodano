@@ -1,0 +1,6 @@
+export { default as AboutMe } from "./AboutMe.astro"
+export { default as Description } from "./Description.astro"
+export { default as Experience } from "./Experience.astro"
+export { default as Footer } from "./Footer.astro"
+export { default as Header } from "./Header.astro"
+export { default as Skills } from "./Skills.astro"

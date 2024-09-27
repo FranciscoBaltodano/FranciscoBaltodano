@@ -1,0 +1,68 @@
+---
+import { SOCIALS } from "../../data/socials";
+import { Animation } from "../animations/TextAnimation";
+import Component from "../Component.astro";
+---
+
+<header
+class="lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:pt-24"
+>
+<div
+  class="flex lg:items-start gap-4 flex-col lg:flex-row items-center text-center lg:text-left"
+>
+  <img
+    src="/avatar.webp"
+    alt="Jose Francisco Foto"
+    class="w-16 h-16 rounded-full"
+  />
+  <div>
+    <a
+      href="/"
+      class="block text-4xl lg:text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50"
+    >
+      <Animation contenido="FRANCISCO" client:load />
+      <Animation contenido="MEJIA" client:load />
+    </a>
+    <h2 class="mt-2 text-sm lg:text-lg font-medium text-neutral-400">
+      Entusiasta Frontend Developer
+    </h2>
+
+    <a
+      data-ccursor
+      href="mailto:franciscobaltodano2003@gmail.com"
+      class="inline-flex transition-all border-neutral-700 hover:border-opacity-0 border-opacity-50 shadow rounded-md border backdrop-blur-xl bg-neutral-400/10 px-3 py-2.5 items-center text-white font-semibold group p-2 text-sm gap-x-2 mt-4"
+    >
+      <span>Contactame</span>
+
+      <span
+        class="w-2 h-2 rounded-full bg-green-400 duration-1000 animate-pulse"
+      >
+      </span>
+    </a>
+  </div>
+</div>
+
+{
+  SOCIALS.length && (
+    <ul
+      class="mt-8 flex items-center justify-center lg:justify-normal gap-x-5"
+      aria-label="Social media"
+    >
+      {SOCIALS.map((social) => (
+        <li class="text-xs p-2 rounded" data-ccursor>
+          <a
+            class="block hover:text-slate-200"
+            href={social.url}
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label={`${social.name} (opens in a new tab)`}
+          >
+            <span class="sr-only">{social.name}</span>
+            {<Component component={social.icon} />}
+          </a>
+        </li>
+      ))}
+    </ul>
+  )
+}
+</header>
