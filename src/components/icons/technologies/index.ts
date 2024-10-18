@@ -19,3 +19,4 @@ export { default as tailwind } from './tailwind.astro';
 export { default as typescript } from './typescript.astro';
 export { default as vercel } from './vercel.astro'; 
 export { default as wordpress } from './wordpress.astro'; 
+export { default as terraform } from './terraform.astro'; 
