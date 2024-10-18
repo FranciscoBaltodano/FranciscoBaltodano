@@ -12,14 +12,48 @@ url:
     liveDemo: 
 ---
 
-### Enlace al video de youtube donde explico a detalle la arquitectura: https://youtu.be/IqhJU4-6-no 
-
-
-Este proyecto tiene como objetivo el desarrollo y despliegue de la infraestructura en **Azure** para un sistema contable basado en la nube utilizando **Terraform**. Incluye la implementación de **App Service Plans**, **base de datos SQL**, **cuentas de almacenamiento**, **redes virtuales** y otros servicios esenciales para el funcionamiento del sistema.
+### Enlace al video de youtube: https://youtu.be/IqhJU4-6-no 
 
 ## Descripción del Proyecto
+Este proyecto tiene como objetivo el desarrollo y despliegue de la infraestructura en **Azure** para un sistema contable basado en la nube utilizando **Terraform**. Incluye la implementación de **App Service Plans**, **base de datos SQL**, **cuentas de almacenamiento**, **redes virtuales** y otros servicios esenciales para el funcionamiento del sistema.
+
 
 El sistema contable se despliega en la nube de **Azure** mediante scripts de Terraform, automatizando la creación y configuración de la infraestructura para asegurar escalabilidad, seguridad y alta disponibilidad.
+
+---
+## Pasos para el Despliegue de la Infraestructura
+
+#### 1. **Configuración Inicial**
+Primero se crea el archivo `main.tf` para definir el **provider** de Azure y el **grupo de recursos** donde se alojará toda la infraestructura.
+
+#### 2. **Configuración de la Red**
+Se configura la red del proyecto mediante la creación de:
+- **VNet (Virtual Network)** para conectar los diferentes componentes.
+- **Subnets** para segmentar la red y distribuir los recursos.
+- **NSG (Network Security Group)** para controlar el tráfico de red hacia y desde los recursos.
+
+#### 3. **Configuración de la Base de Datos**
+Se configuraron varios componentes para la base de datos del sistema:
+- **Servidor de base de datos** en Azure SQL para almacenar los datos contables.
+- **Base de datos** dentro del servidor.
+- **Private Endpoint** para la conexión privada a la base de datos.
+- **DNS Zone** y **Virtual Network Link** para resolver nombres de dominio dentro de la red privada.
+
+#### 4. **Configuración del Almacenamiento**
+Se implementaron diferentes servicios de almacenamiento dentro de una **Storage Account**:
+- **Blob Storage** para almacenamiento de documentos y archivos.
+- **Queue Storage** para gestionar solicitudes asíncronas.
+- **Table Storage** para almacenar datos estructurados del sistema.
+
+#### 5. **Despliegue de las Aplicaciones Web**
+Se crearon dos **App Service Plans**:
+- **App Service Plan (UI)**: Para desplegar la interfaz de usuario del sistema.
+- **App Service Plan (API)**: Para desplegar la API del sistema contable.
+
+#### 6. **Integración de Function App**
+Se configuró una **Function App** dentro del App Service Plan de la API para economizar recursos y la function app sirve para ejecutar funciones serverless que apoyan las tareas automáticas y el procesamiento del sistema.
+
+---
 
 ### Componentes Principales
 
