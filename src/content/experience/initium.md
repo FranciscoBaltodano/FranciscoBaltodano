@@ -68,5 +68,11 @@ Este proyecto implementa un sistema de activación de cuentas basado en colas y 
   - Configuración de Azure Queue Storage.
   - Implementación de Function Apps y otros recursos necesarios.
 
-
 ---
+
+### Codigo Fuente
+Para explorar el código de este proyecto puedes acceder a los siguientes repositorios:
+- **Initium UI:** [Repositorio del frontend](https://github.com/FranciscoBaltodano/initium-ui)
+- **Initium API:** [Repositorio del backend](https://github.com/FranciscoBaltodano/initium-api)
+- **Initium DB:** [Repositorio de la base de datos](https://github.com/FranciscoBaltodano/initium-object-db)
+- **Initium Azure Function:** [Respositorio de la azure function app](https://github.com/FranciscoBaltodano/initium-function-app)
