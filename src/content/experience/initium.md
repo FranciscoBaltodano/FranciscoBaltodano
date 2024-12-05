@@ -8,7 +8,12 @@ technologies: [
   "Azure Queue Storage",
   "Azure Function App",
   "Terraform",
-  "SendGrid"
+  "SendGrid",
+  "GraphQL",
+  "Node.js",
+  "Express",
+  "Apollo Server",
+  "Docker"
 ]
 logo: /logos/initium.png
 img: /liveDemo/initium.png
@@ -68,6 +73,27 @@ Este proyecto implementa un sistema de activación de cuentas basado en colas y 
   - Configuración de Azure Queue Storage.
   - Implementación de Function Apps y otros recursos necesarios.
 
+
+## Nuevas Funcionalidades
+
+### Implementación de GraphQL 
+
+1. **Modelo de Datos:**
+   - Se diseñó e implementó un modelo de datos utilizando la base de datos configurada en Azure. 
+
+2. **Desarrollo del Servicio GraphQL:**
+   - Se levantó un proyecto de GraphQL utilizando Node.js, Express y Apollo Server.
+   - **Schema y Consultas:** 
+     - Se definieron los tipos de datos y consultas necesarias para interactuar con el modelo de datos. Incluyendo filtros, y agregaciónes.
+   - **Resolvers:**
+     - Los resolvers fueron modularizados en archivos separados para facilitar el mantenimiento y escalabilidad del proyecto.
+
+3. **Dockerización y Despliegue:**
+   - El servicio fue desplegado en una nueva Web App en Azure, garantizando disponibilidad y escalabilidad.
+
+4. **Integración con Next.js:**
+   - Al iniciar sesión, los usuarios acceden a la página principal, donde pueden visualizar los datos obtenidos mediante consultas GraphQL.
+
 ---
 
 ### Codigo Fuente
@@ -76,3 +102,4 @@ Para explorar el código de este proyecto puedes acceder a los siguientes reposi
 - **Initium API:** [Repositorio del backend](https://github.com/FranciscoBaltodano/initium-api)
 - **Initium DB:** [Repositorio de la base de datos](https://github.com/FranciscoBaltodano/initium-object-db)
 - **Initium Azure Function:** [Respositorio de la azure function app](https://github.com/FranciscoBaltodano/initium-function-app)
+- **GraphQL API:** [Respositorio del backend con GraphQL](https://github.com/FranciscoBaltodano/apollo-api)
