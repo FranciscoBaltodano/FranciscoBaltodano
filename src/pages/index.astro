@@ -1,21 +1,30 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import {Header, Description, AboutMe, Skills, Experience, Footer} from "../components/sections/";
+import {
+  Header,
+  Description,
+  AboutMe,
+  Skills,
+  Experience,
+  Footer,
+} from "../components/sections/";
 ---
 
 <Layout title="José Francisco Mejía">
   <div class="relative hero z-10">
-    <div class="mx-auto sm:min-h-screen sm:max-w-screen-2xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
-        <Header/>
-        <main id="content" class="pt-12 lg:py-24">
-          <Description/>
-          <AboutMe/>
-          <Skills/>
-          <Experience/>
-        </main>
+    <div
+      class="mx-auto sm:min-h-screen sm:max-w-screen-2xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0"
+    >
+      <Header />
+      <main id="content" class="pt-12 lg:py-24">
+        <Description />
+        <AboutMe />
+        <Skills />
+        <Experience />
+      </main>
     </div>
   </div>
-  <Footer/>
+  <Footer />
 </Layout>
 
 <style>
