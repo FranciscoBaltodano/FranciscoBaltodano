@@ -1,17 +1,24 @@
 ---
 import Layout from "@/layouts/main.astro"
-import { Button } from "@/components/ui/button"
+import Navbar from "@/components/Navbar.astro"
+import AboutMe from "@/components/sections/AboutMe.astro"
+import Education from "@/components/sections/Education.astro"
+import Experience from "@/components/sections/Experience.astro"
+import Skills from "@/components/sections/Skills.astro"
+import Certificates from "@/components/sections/Certificates.astro"
 ---
 
 <Layout>
-  <div class="flex min-h-svh p-6">
-    <div class="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-      <div>
-        <h1 class="font-medium">Project ready!</h1>
-        <p>You may now add components and start building.</p>
-        <p>We've already added the button component for you.</p>
-        <Button client:load className="mt-2">Button</Button>
-      </div>
+  <Navbar />
+  <div class="flex flex-col items-center p-6">
+    <div
+      class="mt-8 flex w-full max-w-3xl flex-col gap-12 text-sm leading-loose"
+    >
+      <AboutMe />
+      <Experience />
+      <Education />
+      <Skills />
+      <Certificates />
     </div>
   </div>
 </Layout>

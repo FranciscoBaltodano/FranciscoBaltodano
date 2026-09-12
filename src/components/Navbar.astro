@@ -1,0 +1,59 @@
+---
+import { ModeToggle } from "@/components/ui/ModeToggle"
+import { LanguageToggle } from "@/components/ui/LanguageToggle"
+---
+
+<nav
+  class="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+>
+  <div class="flex h-14 items-center px-6">
+    <div class="mr-4 flex">
+      <a class="mr-6 flex items-center space-x-2" href="/">
+        <span class="font-bold" data-lang="es">Mi Portafolio</span>
+        <span class="font-bold" data-lang="en">My Portfolio</span>
+      </a>
+      <div class="flex items-center space-x-6 text-sm font-medium">
+        <a
+          class="text-foreground/60 transition-colors hover:text-foreground/80"
+          href="#aboutme"
+        >
+          <span data-lang="es">Sobre mi</span>
+          <span data-lang="en">About me</span>
+        </a>
+        <a
+          class="text-foreground/60 transition-colors hover:text-foreground/80"
+          href="#experience"
+        >
+          <span data-lang="es">Experiencia</span>
+          <span data-lang="en">Experience</span>
+        </a>
+        <a
+          class="text-foreground/60 transition-colors hover:text-foreground/80"
+          href="#education"
+        >
+          <span data-lang="es">Educación</span>
+          <span data-lang="en">Education</span>
+        </a>
+        <a
+          class="text-foreground/60 transition-colors hover:text-foreground/80"
+          href="#skills"
+        >
+          <span data-lang="es">Habilidades</span>
+          <span data-lang="en">Skills</span>
+        </a>
+        <a
+          class="text-foreground/60 transition-colors hover:text-foreground/80"
+          href="#certificates"
+        >
+          <span data-lang="es">Certificados</span>
+          <span data-lang="en">Certificates</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="flex flex-1 items-center justify-end space-x-4">
+      <LanguageToggle client:load />
+      <ModeToggle client:load />
+    </div>
+  </div>
+</nav>

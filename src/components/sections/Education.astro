@@ -1,0 +1,38 @@
+---
+import { educationData } from "@/data/education"
+---
+
+<section
+  id="education"
+  class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+  aria-label="Education"
+>
+  <div
+    class="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-3 backdrop-blur-lg md:-mx-12 md:px-12 lg:relative lg:mx-auto lg:w-full lg:px-0"
+  >
+    <h2 class="text-sm font-bold tracking-widest text-neutral-200 uppercase">
+      <span data-lang="es">Educación</span>
+      <span data-lang="en">Education</span>
+    </h2>
+  </div>
+  <div>
+    <div class="space-y-8">
+      {
+        educationData.map((item) => (
+          <div>
+            <h3 class="font-semibold text-neutral-200">{item.institution}</h3>
+            <p class="text-sm text-neutral-400">
+              <span data-lang="es">
+                {item.degree} • {item.period}
+              </span>
+              <span data-lang="en">
+                {item.degree_en} • {item.period_en}
+              </span>
+            </p>
+            <p class="mt-2 text-sm text-neutral-400/90">{item.location}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,33 @@
+---
+import fs from "node:fs"
+import path from "node:path"
+import CertificatesGallery from "./CertificatesGallery.tsx"
+
+let certificateFiles = []
+try {
+  // Use process.cwd() assuming this is run in the project root during build
+  const certificatesDir = path.join(process.cwd(), "public/certificates")
+  certificateFiles = fs
+    .readdirSync(certificatesDir)
+    .filter((file) => file.match(/\.(jpeg|jpg|png|webp)$/i))
+} catch (e) {
+  console.error("Error reading certificates directory:", e)
+}
+---
+
+<section
+  id="certificates"
+  class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+  aria-label="Certificates"
+>
+  <div
+    class="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-3 backdrop-blur-lg md:-mx-12 md:px-12 lg:relative lg:mx-auto lg:w-full lg:px-0"
+  >
+    <h2 class="text-sm font-bold tracking-widest text-neutral-200 uppercase">
+      <span data-lang="es">Certificados</span>
+      <span data-lang="en">Certificates</span>
+    </h2>
+  </div>
+
+  <CertificatesGallery client:load certificates={certificateFiles} />
+</section>
