@@ -15,21 +15,36 @@ import { educationData } from "@/data/education"
       <span data-lang="en">Education</span>
     </h2>
   </div>
+
   <div>
     <div class="space-y-8">
       {
         educationData.map((item) => (
-          <div>
-            <h3 class="font-semibold text-neutral-200">{item.institution}</h3>
-            <p class="text-sm text-neutral-400">
-              <span data-lang="es">
-                {item.degree} • {item.period}
-              </span>
-              <span data-lang="en">
-                {item.degree_en} • {item.period_en}
-              </span>
-            </p>
-            <p class="mt-2 text-sm text-neutral-400/90">{item.location}</p>
+          <div class="flex gap-4">
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-neutral-800 bg-neutral-900 p-2">
+              <img
+                src={item.logo}
+                alt={`Logo de ${item.institution}`}
+                class="h-full w-full object-contain"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="min-w-0">
+              <h3 class="font-semibold text-neutral-200">{item.institution}</h3>
+
+              <p class="text-sm text-neutral-400">
+                <span data-lang="es">
+                  {item.degree} • {item.period}
+                </span>
+
+                <span data-lang="en">
+                  {item.degree_en} • {item.period_en}
+                </span>
+              </p>
+
+              <p class="mt-2 text-sm text-neutral-400/90">{item.location}</p>
+            </div>
           </div>
         ))
       }

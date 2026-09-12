@@ -1,10 +1,11 @@
 export interface EducationItem {
-  institution: string;
-  degree: string;
-  degree_en: string;
-  location: string;
-  period: string;
-  period_en: string;
+  institution: string
+  degree: string
+  degree_en: string
+  location: string
+  period: string
+  period_en: string
+  logo: string
 }
 
 export const educationData: EducationItem[] = [
@@ -14,7 +15,8 @@ export const educationData: EducationItem[] = [
     degree_en: "Master's in Technological Project Design and Management",
     location: "Ciudad de México, México",
     period: "Ago 2026 – Actualidad",
-    period_en: "Aug 2026 – Present"
+    period_en: "Aug 2026 – Present",
+    logo: "/education/UNIR.png",
   },
   {
     institution: "Oracle Next Education",
@@ -22,7 +24,8 @@ export const educationData: EducationItem[] = [
     degree_en: "Diploma in Data Science",
     location: "Tegucigalpa, Honduras",
     period: "Ago 2025 – Ene 2026",
-    period_en: "Aug 2025 – Jan 2026"
+    period_en: "Aug 2025 – Jan 2026",
+    logo: "/education/ONE.png",
   },
   {
     institution: "Universidad Nacional Autónoma de Honduras",
@@ -30,6 +33,7 @@ export const educationData: EducationItem[] = [
     degree_en: "Honors Graduate in Systems Engineering",
     location: "Tegucigalpa, Honduras",
     period: "Ene 2020 – Sep 2025",
-    period_en: "Jan 2020 – Sep 2025"
-  }
-];
+    period_en: "Jan 2020 – Sep 2025",
+    logo: "/education/UNAH.webp",
+  },
+]
