@@ -1,5 +1,6 @@
 ---
 import { hobbiesData } from "@/data/hobbies"
+import { HobbiesCarousel } from "../common/HobbiesCarousel"
 ---
 
 <section
@@ -16,29 +17,5 @@ import { hobbiesData } from "@/data/hobbies"
     </h2>
   </div>
 
-  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-    {
-      hobbiesData.map((item) => (
-        <article class="rounded-lg border border-neutral-800 bg-neutral-900/40 p-5 transition-colors hover:border-neutral-700">
-          <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-neutral-800 bg-neutral-900 p-2">
-            <img
-              src={item.img}
-              alt={`Logo de ${item.img}`}
-              class="h-full w-full object-contain"
-              loading="lazy"
-            />
-          </div>
-          <h3 class="font-semibold text-neutral-200">
-            <span data-lang="es">{item.name}</span>
-            <span data-lang="en">{item.name_en}</span>
-          </h3>
-
-          <p class="mt-2 text-sm leading-relaxed text-neutral-400">
-            <span data-lang="es">{item.description}</span>
-            <span data-lang="en">{item.description_en}</span>
-          </p>
-        </article>
-      ))
-    }
-  </div>
+  <HobbiesCarousel hobbies={hobbiesData} autoplay client:only />
 </section>

@@ -3,6 +3,7 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card"
+import { useEffect, useState } from "react"
 
 const socials = [
   {
@@ -10,16 +11,37 @@ const socials = [
     url: "https://github.com/FranciscoBaltodano",
     image: "/socials/github.png",
     description: "Mis proyectos y código fuente",
+    description_en: "My projects and source code",
   },
   {
     name: "LinkedIn",
     url: "https://linkedin.com/in/FranciscoBaltodano",
     image: "/socials/linkedin.png",
     description: "Mi perfil profesional",
+    description_en: "My professional profile",
   },
 ]
 
 export function Socials() {
+  const [language, setLanguage] = useState<"es" | "en">("es")
+
+  useEffect(() => {
+    const updateLanguage = () => {
+      setLanguage(document.documentElement.lang === "en" ? "en" : "es")
+    }
+
+    updateLanguage()
+
+    const observer = new MutationObserver(updateLanguage)
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["lang"],
+    })
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <div className="flex flex-wrap items-center gap-4">
       {socials.map((social) => (
@@ -60,7 +82,7 @@ export function Socials() {
 
                 <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors group-hover:bg-black/20">
                   <span className="rounded-full bg-white/90 px-3 py-1.5 text-xs font-medium text-neutral-900 opacity-0 shadow-sm transition-opacity group-hover:opacity-100">
-                    Visitar perfil ↗
+                    {language === "en" ? "Visit profile ↗" : "Visitar perfil ↗"}
                   </span>
                 </div>
               </div>
@@ -71,7 +93,9 @@ export function Socials() {
                 </p>
 
                 <p className="mt-1 text-xs text-neutral-500 dark:text-neutral-400">
-                  {social.description}
+                  {language === "en"
+                    ? social.description_en
+                    : social.description}
                 </p>
               </div>
             </a>
