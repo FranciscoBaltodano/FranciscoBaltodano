@@ -6,6 +6,7 @@ export interface EducationItem {
   period: string
   period_en: string
   logo: string
+  certificate?: string
 }
 
 export const educationData: EducationItem[] = [
@@ -26,6 +27,8 @@ export const educationData: EducationItem[] = [
     period: "Ago 2025 – Ene 2026",
     period_en: "Aug 2025 – Jan 2026",
     logo: "/education/ONE.png",
+    certificate:
+      "https://app.aluracursos.com/program/certificate/b510e6a8-4db1-4734-b039-07f219a683a0?lang",
   },
   {
     institution: "Universidad Nacional Autónoma de Honduras",
@@ -35,5 +38,6 @@ export const educationData: EducationItem[] = [
     period: "Ene 2020 – Sep 2025",
     period_en: "Jan 2020 – Sep 2025",
     logo: "/education/UNAH.webp",
+    certificate: "/education/Titulo_universitario.pdf",
   },
 ]

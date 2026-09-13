@@ -1,12 +1,13 @@
 ---
 import Layout from "@/layouts/main.astro"
-import Navbar from "@/components/Navbar.astro"
+import Navbar from "@/components/common/Navbar.astro"
 import AboutMe from "@/components/sections/AboutMe.astro"
 import Education from "@/components/sections/Education.astro"
 import Experience from "@/components/sections/Experience.astro"
 import Skills from "@/components/sections/Skills.astro"
 import Certificates from "@/components/sections/Certificates.astro"
 import Hobbies from "@/components/sections/Hobbies.astro"
+import Hero from "@/components/sections/Hero.astro"
 ---
 
 <Layout>
@@ -15,6 +16,7 @@ import Hobbies from "@/components/sections/Hobbies.astro"
     <div
       class="mt-8 flex w-full max-w-3xl flex-col gap-12 text-sm leading-loose"
     >
+      <Hero />
       <AboutMe />
       <Experience />
       <Education />

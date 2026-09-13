@@ -8,46 +8,78 @@ import { educationData } from "@/data/education"
   aria-label="Education"
 >
   <div
-    class="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-3 backdrop-blur-lg md:-mx-12 md:px-12 lg:relative lg:mx-auto lg:w-full lg:px-0"
+    class="sticky top-0 z-20 -mx-6 mb-8 w-screen px-6 py-3 backdrop-blur-lg md:-mx-12 md:px-12 lg:relative lg:mx-auto lg:w-full lg:px-0"
   >
-    <h2 class="text-sm font-bold tracking-widest text-neutral-200 uppercase">
+    <h2
+      class="text-sm font-medium tracking-widest text-neutral-700 uppercase dark:text-neutral-300"
+    >
       <span data-lang="es">Educación</span>
       <span data-lang="en">Education</span>
     </h2>
   </div>
 
-  <div>
-    <div class="space-y-8">
-      {
-        educationData.map((item) => (
-          <div class="flex gap-4">
-            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-neutral-800 bg-neutral-900 p-2">
+  <div class="space-y-8">
+    {
+      educationData.map((item) => (
+        <article class="group border-b border-neutral-200 pb-8 last:border-0 dark:border-neutral-800">
+          <div class="flex gap-5">
+            <!-- Logo -->
+            <div
+              class="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-neutral-200 bg-neutral-50 p-2.5 transition-colors group-hover:border-neutral-300 dark:border-neutral-800 dark:group-hover:border-neutral-700"
+            >
               <img
                 src={item.logo}
                 alt={`Logo de ${item.institution}`}
-                class="h-full w-full object-contain"
+                class="max-h-full max-w-full object-contain"
                 loading="lazy"
               />
             </div>
 
-            <div class="min-w-0">
-              <h3 class="font-semibold text-neutral-200">{item.institution}</h3>
+            <!-- Información -->
+            <div class="min-w-0 flex-1">
+              <div class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
+                <h3 class="font-medium text-neutral-900 dark:text-neutral-100">
+                  {item.institution}
+                </h3>
 
-              <p class="text-sm text-neutral-400">
-                <span data-lang="es">
-                  {item.degree} • {item.period}
-                </span>
+                <p class="shrink-0 text-xs text-neutral-500 dark:text-neutral-500">
+                  <span data-lang="es">{item.period}</span>
+                  <span data-lang="en">{item.period_en}</span>
+                </p>
+              </div>
 
-                <span data-lang="en">
-                  {item.degree_en} • {item.period_en}
-                </span>
+              <p class="mt-1 text-sm text-emerald-800 dark:text-emerald-400">
+                <span data-lang="es">{item.degree}</span>
+                <span data-lang="en">{item.degree_en}</span>
               </p>
 
-              <p class="mt-2 text-sm text-neutral-400/90">{item.location}</p>
+              <p class="mt-2 text-sm text-neutral-500 dark:text-neutral-400">
+                {item.location}
+              </p>
+
+              {
+                item.certificate ? (
+                  <a
+                    href={item.certificate}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-emerald-800 transition-colors hover:text-emerald-600 dark:text-emerald-400 dark:hover:text-emerald-300"
+                  >
+                    <span data-lang="es">Ver certificado</span>
+                    <span data-lang="en">View certificate</span>
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                ) : (
+                  <span class="mt-4 inline-flex text-xs text-neutral-400 dark:text-neutral-600">
+                    <span data-lang="es">Certificado próximamente</span>
+                    <span data-lang="en">Certificate coming soon</span>
+                  </span>
+                )
+              }
             </div>
           </div>
-        ))
-      }
-    </div>
+        </article>
+      ))
+    }
   </div>
 </section>

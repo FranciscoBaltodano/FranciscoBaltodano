@@ -33,54 +33,100 @@ import {
   typescript,
   vercel,
   wordpress,
-} from "../components/icons/skills";
+} from "@/components/icons/skills"
 
-export const skills = [
-  // --- FRONTEND ---
-  { category: "front", name: "Astro", icon: astro },
-  { category: "front", name: "Javascript", icon: javascript },
-  { category: "front", name: "Typescript", icon: typescript },
-  { category: "front", name: "Next", icon: next },
-  { category: "front", name: "React Native", icon: react },
-  { category: "front", name: "Laravel", icon: laravelicon },
-  { category: "front", name: "TanStack", icon: tanstack },
-  { category: "front", name: "Redux", icon: redux },
+export interface Skill {
+  name: string
+  icon: any
+}
 
-  // --- UI / DISEÑO ---
-  { category: "ui", name: "Bootstrap", icon: bootstrap },
-  { category: "ui", name: "Figma", icon: figma },
-  { category: "ui", name: "Material UI", icon: materialui },
-  { category: "ui", name: "Tailwind", icon: tailwind },
+export interface SkillCategory {
+  category: string
+  category_en: string
+  skills: Skill[]
+}
 
-  // --- BACKEND ---
-  { category: "back", name: "Express", icon: express },
-  { category: "back", name: "Node", icon: node },
-  { category: "back", name: "Spring Boot", icon: springboot },
-  { category: "back", name: "Python", icon: python },
+export const skills: SkillCategory[] = [
+  {
+    category: "Frontend",
+    category_en: "Frontend",
+    skills: [
+      { name: "Astro", icon: astro },
+      { name: "JavaScript", icon: javascript },
+      { name: "TypeScript", icon: typescript },
+      { name: "Next.js", icon: next },
+      { name: "React Native", icon: react },
+      { name: "Laravel", icon: laravelicon },
+      { name: "TanStack", icon: tanstack },
+      { name: "Redux", icon: redux },
+    ],
+  },
 
-  // --- BASE DE DATOS ---
-  { category: "db", name: "MySQL", icon: mysql },
-  { category: "db", name: "PostgreSQL", icon: postgresql },
-  { category: "db", name: "SQL Server", icon: sqlserver },
-  { category: "db", name: "Mongo", icon: mongo },
-  { category: "db", name: "Supabase", icon: supabase },
-  { category: "db", name: "Oracle", icon: oracle },
+  {
+    category: "UI / Diseño",
+    category_en: "UI / Design",
+    skills: [
+      { name: "Bootstrap", icon: bootstrap },
+      { name: "Figma", icon: figma },
+      { name: "Material UI", icon: materialui },
+      { name: "Tailwind", icon: tailwind },
+    ],
+  },
 
-  // --- DATA / ANALÍTICA ---
-  { category: "data", name: "Excel", icon: excel },
-  { category: "data", name: "Power BI", icon: powerbi },
-  { category: "data", name: "Tableau", icon: tableau },
+  {
+    category: "Backend",
+    category_en: "Backend",
+    skills: [
+      { name: "Express", icon: express },
+      { name: "Node.js", icon: node },
+      { name: "Spring Boot", icon: springboot },
+      { name: "Python", icon: python },
+    ],
+  },
 
-  // --- DEVOPS / DEPLOY ---
-  { category: "devops", name: "Terraform", icon: terraform },
-  { category: "devops", name: "Cloudflare", icon: cloudflare },
-  { category: "devops", name: "Netlify", icon: netlify },
-  { category: "devops", name: "Vercel", icon: vercel },
-  { category: "devops", name: "Github", icon: github },
+  {
+    category: "Bases de Datos",
+    category_en: "Databases",
+    skills: [
+      { name: "MySQL", icon: mysql },
+      { name: "PostgreSQL", icon: postgresql },
+      { name: "SQL Server", icon: sqlserver },
+      { name: "MongoDB", icon: mongo },
+      { name: "Supabase", icon: supabase },
+      { name: "Oracle", icon: oracle },
+    ],
+  },
 
-  // --- PRODUCTIVIDAD / OTROS ---
-  { category: "tools", name: "Click Up", icon: clickup },
-  { category: "tools", name: "Jira", icon: jira },
-  { category: "tools", name: "Slack", icon: slack },
-  { category: "tools", name: "Wordpress", icon: wordpress },
-];
+  {
+    category: "Data / Analítica",
+    category_en: "Data / Analytics",
+    skills: [
+      { name: "Excel", icon: excel },
+      { name: "Power BI", icon: powerbi },
+      { name: "Tableau", icon: tableau },
+    ],
+  },
+
+  {
+    category: "DevOps / Deploy",
+    category_en: "DevOps / Deployment",
+    skills: [
+      { name: "Terraform", icon: terraform },
+      { name: "Cloudflare", icon: cloudflare },
+      { name: "Netlify", icon: netlify },
+      { name: "Vercel", icon: vercel },
+      { name: "GitHub", icon: github },
+    ],
+  },
+
+  {
+    category: "Productividad / Otros",
+    category_en: "Productivity / Other",
+    skills: [
+      { name: "ClickUp", icon: clickup },
+      { name: "Jira", icon: jira },
+      { name: "Slack", icon: slack },
+      { name: "WordPress", icon: wordpress },
+    ],
+  },
+]

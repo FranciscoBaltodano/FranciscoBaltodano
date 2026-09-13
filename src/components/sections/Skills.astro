@@ -5,36 +5,92 @@ import { skills } from "@/data/skills"
 <section
   id="skills"
   class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
-  aria-label="skills"
+  aria-label="Skills"
 >
   <div
-    class="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-3 backdrop-blur-lg md:-mx-12 md:px-12 lg:relative lg:mx-auto lg:w-full lg:px-0"
+    class="sticky top-0 z-20 -mx-6 mb-6 w-screen px-6 py-3 backdrop-blur-lg md:-mx-12 md:px-12 lg:relative lg:mx-auto lg:w-full lg:px-0"
   >
     <h2 class="text-sm font-bold tracking-widest text-neutral-200 uppercase">
-      Habilidades
+      <span data-lang="es">Habilidades</span>
+      <span data-lang="en">Skills</span>
     </h2>
   </div>
-  <div>
-    <div class="space-y-4">
-      <ul
-        class="grid grid-cols-2 justify-items-center gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6"
-      >
-        {
-          skills.map((tech) => (
-            <li class="group relative flex flex-col items-center transition-all hover:scale-150">
-              <div class="flex h-12 w-12 items-center justify-center">
-                <div class="flex h-10 w-10 items-center justify-center">
-                  <tech.icon class="h-full w-full" />
+
+  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+    {
+      skills.map((category) => (
+        <div class="rounded-lg border border-neutral-800 bg-neutral-900/40 p-5">
+          <h3 class="mb-5 text-sm font-semibold text-neutral-200">
+            <span data-lang="es">{category.category}</span>
+            <span data-lang="en">{category.category_en}</span>
+          </h3>
+
+          <ul class="grid grid-cols-2 justify-items-center gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+            {category.skills.map((tech) => (
+              <li class="group relative flex flex-col items-center transition-all hover:scale-150">
+                <div class="flex h-12 w-12 items-center justify-center">
+                  <div class="flex h-10 w-10 items-center justify-center">
+                    <tech.icon class="h-full w-full" />
+                  </div>
                 </div>
+
+                <span class="absolute bottom-0 translate-y-4 transform rounded-md bg-gray-800 px-2 py-1 text-xs text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                  {tech.name}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+</section>
+<!-- 
+<div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+  {
+    skills.map((category) => (
+      <div class="rounded-lg border border-neutral-800 bg-neutral-900/40 p-5">
+        <h3 class="mb-5 text-sm font-semibold text-neutral-200">
+          <span data-lang="es">{category.category}</span>
+          <span data-lang="en">{category.category_en}</span>
+        </h3>
+
+        <ul class="grid grid-cols-3 gap-5 sm:grid-cols-4">
+          {category.skills.map((tech) => (
+            <li class="group relative flex flex-col items-center">
+              <div class="flex h-12 w-12 items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                <tech.icon class="h-10 w-10" />
               </div>
 
-              <span class="absolute bottom-0 translate-y-4 transform rounded-md bg-gray-800 px-2 py-1 text-xs text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+              <span class="pointer-events-none absolute top-full z-10 mt-2 rounded-md bg-gray-800 px-2 py-1 text-xs whitespace-nowrap text-white opacity-0 transition-all duration-300 group-hover:opacity-100">
                 {tech.name}
               </span>
             </li>
-          ))
-        }
-      </ul>
-    </div>
-  </div>
-</section>
+          ))}
+        </ul>
+      </div>
+    ))
+  }
+</div> -->
+<!-- 
+<div class="space-y-4">
+  <ul
+    class="grid grid-cols-2 justify-items-center gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6"
+  >
+    {
+      skills.map((tech) => (
+        <li class="group relative flex flex-col items-center transition-all hover:scale-150">
+          <div class="flex h-12 w-12 items-center justify-center">
+            <div class="flex h-10 w-10 items-center justify-center">
+              <tech.icon class="h-full w-full" />
+            </div>
+          </div>
+
+          <span class="absolute bottom-0 translate-y-4 transform rounded-md bg-gray-800 px-2 py-1 text-xs text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+            {tech.name}
+          </span>
+        </li>
+      ))
+    }
+  </ul>
+</div> -->

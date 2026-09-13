@@ -1,0 +1,52 @@
+---
+import { Socials } from "../common/Socials"
+---
+
+<section class="px-6 py-20 md:py-28">
+  <div class="mx-auto flex max-w-5xl items-center gap-12">
+    <div class="max-w-2xl">
+      <p
+        class="mb-4 text-sm font-medium tracking-widest text-emerald-800 uppercase dark:text-emerald-400"
+      >
+        Portafolio
+      </p>
+
+      <h1
+        class="font-serif text-5xl leading-tight font-medium tracking-tight text-neutral-900 sm:text-6xl dark:text-white"
+      >
+        Hola, soy
+        <span class="text-emerald-800 dark:text-emerald-400"> Francisco. </span>
+      </h1>
+
+      <p
+        class="mt-5 text-xl font-medium text-neutral-700 dark:text-neutral-300"
+      >
+        Ingeniero en Sistemas · Data & Software
+      </p>
+
+      <p
+        class="mt-4 max-w-xl text-base leading-7 text-neutral-600 dark:text-neutral-400"
+      >
+        Ingeniero en Sistemas especializado en Data Engineering, ETL y SQL, con
+        experiencia en desarrollo de software y QA Automation.
+      </p>
+
+      <div class="mt-7 flex flex-col gap-4">
+        <a
+          href="mailto:franciscobaltodano2003@gmail.com"
+          class="w-fit text-sm text-neutral-600 transition-colors hover:text-emerald-800 dark:text-neutral-400 dark:hover:text-emerald-400"
+        >
+          franciscobaltodano2003@gmail.com
+        </a>
+
+        <Socials client:load />
+      </div>
+    </div>
+
+    <img
+      src="/me.jpg"
+      alt="Francisco Mejía"
+      class="hidden h-64 w-52 rounded-2xl object-cover md:block"
+    />
+  </div>
+</section>
