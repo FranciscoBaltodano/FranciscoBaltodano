@@ -43,13 +43,4 @@ export const hobbiesData: HobbyItem[] = [
       "I enjoy walking to disconnect from routine, explore new places, and maintain a balance between focus, physical activity, and personal time.",
     img: "/hobbies/WALKING.jpg",
   },
-  {
-    name: "Videojuegos",
-    name_en: "Video Games",
-    description:
-      "Los videojuegos forman parte de mi interés por la tecnología y el entretenimiento interactivo, especialmente por los retos de lógica, estrategia y resolución de problemas.",
-    description_en:
-      "Video games are part of my interest in technology and interactive entertainment, particularly for their challenges involving logic, strategy, and problem-solving.",
-    img: "/hobbies/VIDEOGAMES.avif",
-  },
 ]

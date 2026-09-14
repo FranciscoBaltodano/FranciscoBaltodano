@@ -1,0 +1,84 @@
+---
+import {
+  IconBrandGithub,
+  IconBrandLinkedin,
+  IconMail,
+} from "@tabler/icons-react"
+---
+
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="mx-auto max-w-5xl px-6 py-16 md:py-20">
+    <div class="grid gap-10 md:grid-cols-[1fr_auto] md:items-end">
+      <div>
+        <p
+          class="mb-3 text-sm font-medium tracking-widest text-emerald-800 uppercase dark:text-emerald-400"
+        >
+          <span data-lang="es">Contacto</span>
+          <span data-lang="en">Contact</span>
+        </p>
+
+        <h2
+          class="font-serif text-4xl font-medium tracking-tight text-neutral-900 sm:text-5xl dark:text-white"
+        >
+          <span data-lang="es">¿Trabajamos juntos?</span>
+          <span data-lang="en">Let's work together.</span>
+        </h2>
+
+        <p
+          class="mt-4 max-w-lg text-base leading-7 text-neutral-600 dark:text-neutral-400"
+        >
+          <span data-lang="es">
+            Estoy abierto a nuevas oportunidades, proyectos y colaboraciones
+            relacionadas con datos, software y tecnología.
+          </span>
+
+          <span data-lang="en">
+            I'm open to new opportunities, projects, and collaborations related
+            to data, software, and technology.
+          </span>
+        </p>
+
+        <a
+          href="mailto:franciscobaltodano2003@gmail.com"
+          class="mt-6 inline-flex items-center gap-2 text-sm font-medium text-neutral-900 transition-colors hover:text-emerald-800 dark:text-neutral-100 dark:hover:text-emerald-400"
+        >
+          <IconMail />
+          franciscobaltodano2003@gmail.com
+        </a>
+      </div>
+
+      <div class="flex gap-5">
+        <a
+          href="https://github.com/FranciscoBaltodano"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+          class="text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-500 dark:hover:text-white"
+        >
+          <IconBrandGithub />
+        </a>
+
+        <a
+          href="https://linkedin.com/in/FranciscoBaltodano"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          class="text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-500 dark:hover:text-white"
+        >
+          <IconBrandLinkedin />
+        </a>
+      </div>
+    </div>
+
+    <div
+      class="mt-12 flex flex-col gap-2 border-t border-neutral-200 pt-6 text-xs text-neutral-400 sm:flex-row sm:items-center sm:justify-between dark:border-neutral-800"
+    >
+      <p>© {new Date().getFullYear()} Francisco Mejía</p>
+
+      <p>
+        <span data-lang="es">Ingeniería · Datos · Software</span>
+        <span data-lang="en">Engineering · Data · Software</span>
+      </p>
+    </div>
+  </div>
+</footer>

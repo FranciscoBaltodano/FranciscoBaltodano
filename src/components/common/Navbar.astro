@@ -1,6 +1,7 @@
 ---
 import { ModeToggle } from "@/components/ui/ModeToggle"
 import { LanguageToggle } from "@/components/ui/LanguageToggle"
+import { CVDownload } from "./CVDownload"
 ---
 
 <nav
@@ -57,9 +58,10 @@ import { LanguageToggle } from "@/components/ui/LanguageToggle"
       </div>
     </div>
 
-    <div class="flex flex-1 items-center justify-end space-x-4">
+    <div class="flex flex-1 items-center justify-end gap-2">
       <LanguageToggle client:load />
       <ModeToggle client:load />
+      <CVDownload client:load />
     </div>
   </div>
 </nav>

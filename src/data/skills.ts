@@ -34,6 +34,12 @@ import {
   vercel,
   wordpress,
 } from "@/components/icons/skills"
+import Azure from "@/components/icons/skills/azure.astro"
+import Claude from "@/components/icons/skills/claude.astro"
+import Fabric from "@/components/icons/skills/fabric.astro"
+import N8N from "@/components/icons/skills/n8n.astro"
+import Playwright from "@/components/icons/skills/playwright.astro"
+import Selenium from "@/components/icons/skills/selenium.astro"
 
 export interface Skill {
   name: string
@@ -51,27 +57,27 @@ export const skills: SkillCategory[] = [
     category: "Frontend",
     category_en: "Frontend",
     skills: [
-      { name: "Astro", icon: astro },
-      { name: "JavaScript", icon: javascript },
+      // { name: "Astro", icon: astro },
+      // { name: "JavaScript", icon: javascript },
       { name: "TypeScript", icon: typescript },
       { name: "Next.js", icon: next },
       { name: "React Native", icon: react },
-      { name: "Laravel", icon: laravelicon },
+      // { name: "Laravel", icon: laravelicon },
       { name: "TanStack", icon: tanstack },
-      { name: "Redux", icon: redux },
+      // { name: "Redux", icon: redux },
     ],
   },
 
-  {
-    category: "UI / Diseño",
-    category_en: "UI / Design",
-    skills: [
-      { name: "Bootstrap", icon: bootstrap },
-      { name: "Figma", icon: figma },
-      { name: "Material UI", icon: materialui },
-      { name: "Tailwind", icon: tailwind },
-    ],
-  },
+  // {
+  //   category: "UI / Diseño",
+  //   category_en: "UI / Design",
+  //   skills: [
+  //     { name: "Bootstrap", icon: bootstrap },
+  //     { name: "Figma", icon: figma },
+  //     { name: "Material UI", icon: materialui },
+  //     { name: "Tailwind", icon: tailwind },
+  //   ],
+  // },
 
   {
     category: "Backend",
@@ -91,8 +97,8 @@ export const skills: SkillCategory[] = [
       { name: "MySQL", icon: mysql },
       { name: "PostgreSQL", icon: postgresql },
       { name: "SQL Server", icon: sqlserver },
-      { name: "MongoDB", icon: mongo },
-      { name: "Supabase", icon: supabase },
+      // { name: "MongoDB", icon: mongo },
+      // { name: "Supabase", icon: supabase },
       { name: "Oracle", icon: oracle },
     ],
   },
@@ -101,9 +107,11 @@ export const skills: SkillCategory[] = [
     category: "Data / Analítica",
     category_en: "Data / Analytics",
     skills: [
-      { name: "Excel", icon: excel },
+      // { name: "Excel", icon: excel },
+      { name: "Azure Synapse", icon: Azure },
       { name: "Power BI", icon: powerbi },
       { name: "Tableau", icon: tableau },
+      { name: "Fabric", icon: Fabric },
     ],
   },
 
@@ -113,20 +121,31 @@ export const skills: SkillCategory[] = [
     skills: [
       { name: "Terraform", icon: terraform },
       { name: "Cloudflare", icon: cloudflare },
-      { name: "Netlify", icon: netlify },
+      // { name: "Netlify", icon: netlify },
       { name: "Vercel", icon: vercel },
       { name: "GitHub", icon: github },
     ],
   },
 
   {
-    category: "Productividad / Otros",
-    category_en: "Productivity / Other",
+    category: "QA / Automatización",
+    category_en: "QA testing / Automation",
+    skills: [
+      { name: "Playwright", icon: Playwright },
+      { name: "Selenium", icon: Selenium },
+      { name: "n8n", icon: N8N },
+      { name: "Claude", icon: Claude },
+    ],
+  },
+  {
+    category: "Productividad",
+    category_en: "Productivity",
     skills: [
       { name: "ClickUp", icon: clickup },
       { name: "Jira", icon: jira },
       { name: "Slack", icon: slack },
-      { name: "WordPress", icon: wordpress },
+      { name: "Azure Devops", icon: Azure },
+      // { name: "WordPress", icon: wordpress },
     ],
   },
 ]
