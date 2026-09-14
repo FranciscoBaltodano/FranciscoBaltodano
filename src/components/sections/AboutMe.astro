@@ -1,32 +1,144 @@
+---
+import SectionTitle from "../common/SectionTitle.astro"
+---
+
 <section
   id="aboutme"
   class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
   aria-label="About me"
 >
-  <div
-    class="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-3 backdrop-blur-lg md:-mx-12 md:px-12 lg:relative lg:mx-auto lg:w-full lg:px-0"
-  >
-    <h2 class="text-sm font-bold tracking-widest text-neutral-200 uppercase">
-      Sobre mi
-    </h2>
-  </div>
-  <div>
-    <div class="mb-4 space-y-4">
-      <p>
-        Desde niño, he sido apasionado por la tecnología y actualmente diseño
-        interfaces de usuario atractivas. Dedico mi tiempo a mejorar mis
-        habilidades, llevando mis conocimientos al siguiente nivel. Soy una
-        persona realista, adaptable, creativa, y responsable con un gran deseo
-        de trabajar, experimentar y aprender.
-      </p>
+  <SectionTitle en="About me" es="Sobre mí" />
 
-      <p>
-        Mi objetivo es seguir aprendiendo para ayudar a los demás a través de la
-        tecnología.
-      </p>
+  <div class="grid gap-10 md:grid-cols-[1fr_280px] md:items-start">
+    <!-- Content -->
+    <div class="space-y-6">
+      <div
+        class="space-y-4 text-base leading-7 text-neutral-600 dark:text-neutral-400"
+      >
+        <p data-lang="es">
+          Soy Ingeniero en Sistemas especializado en Data Engineering, ETL y
+          SQL, con experiencia desarrollando soluciones para integración,
+          transformación y automatización de datos.
+        </p>
 
-      <p>
-        En mi tiempo libre, disfruto leer, escuchar música y jugar videojuegos.
+        <p data-lang="en">
+          I am a Systems Engineer specialized in Data Engineering, ETL, and SQL,
+          with experience developing solutions for data integration,
+          transformation, and automation.
+        </p>
+
+        <p data-lang="es">
+          Actualmente trabajo con Oracle Data Integrator, SQL Server y SAP
+          BusinessObjects, desarrollando procesos ETL, procedimientos
+          almacenados y reportes orientados a las necesidades del negocio.
+        </p>
+
+        <p data-lang="en">
+          I currently work with Oracle Data Integrator, SQL Server, and SAP
+          BusinessObjects, developing ETL processes, stored procedures, and
+          reports focused on business needs.
+        </p>
+
+        <p data-lang="es">
+          Mi experiencia también incluye desarrollo de software y QA Automation,
+          utilizando tecnologías como JavaScript, TypeScript, Python, React,
+          Node.js, Playwright y Postman. Esta combinación me permite entender
+          las soluciones desde la construcción de datos y software hasta su
+          validación y calidad.
+        </p>
+
+        <p data-lang="en">
+          My experience also includes software development and QA Automation,
+          using technologies such as JavaScript, TypeScript, Python, React,
+          Node.js, Playwright, and Postman. This combination allows me to
+          understand solutions from data and software development through
+          validation and quality assurance.
+        </p>
+      </div>
+
+      <!-- Focus areas -->
+      <div class="grid gap-3 pt-2 sm:grid-cols-3">
+        <div
+          class="rounded-lg border border-neutral-200 bg-neutral-50/60 p-4 dark:border-neutral-800 dark:bg-neutral-900/40"
+        >
+          <h3
+            class="text-sm font-medium text-neutral-900 dark:text-neutral-100"
+          >
+            Data Engineering
+          </h3>
+          <p
+            class="mt-1 text-xs leading-5 text-neutral-500 dark:text-neutral-400"
+          >
+            ETL · ODI · SQL · Data Integration
+          </p>
+        </div>
+
+        <div
+          class="rounded-lg border border-neutral-200 bg-neutral-50/60 p-4 dark:border-neutral-800 dark:bg-neutral-900/40"
+        >
+          <h3
+            class="text-sm font-medium text-neutral-900 dark:text-neutral-100"
+          >
+            Software
+          </h3>
+          <p
+            class="mt-1 text-xs leading-5 text-neutral-500 dark:text-neutral-400"
+          >
+            React · Node.js · Python · TypeScript
+          </p>
+        </div>
+
+        <div
+          class="rounded-lg border border-neutral-200 bg-neutral-50/60 p-4 dark:border-neutral-800 dark:bg-neutral-900/40"
+        >
+          <h3
+            class="text-sm font-medium text-neutral-900 dark:text-neutral-100"
+          >
+            Quality
+          </h3>
+          <p
+            class="mt-1 text-xs leading-5 text-neutral-500 dark:text-neutral-400"
+          >
+            Playwright · API Testing · Automation
+          </p>
+        </div>
+      </div>
+
+      <div class="border-t border-neutral-200 pt-5 dark:border-neutral-800">
+        <p
+          data-lang="es"
+          class="text-sm leading-6 text-neutral-500 dark:text-neutral-400"
+        >
+          Fuera del trabajo, disfruto el ajedrez, la programación, aprender
+          idiomas, caminar y los videojuegos.
+        </p>
+
+        <p
+          data-lang="en"
+          class="text-sm leading-6 text-neutral-500 dark:text-neutral-400"
+        >
+          Outside of work, I enjoy chess, programming, learning languages,
+          walking, and video games.
+        </p>
+      </div>
+    </div>
+
+    <!-- Image -->
+    <div class="hidden md:sticky md:top-24 md:block">
+      <div
+        class="aspect-square overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900"
+      >
+        <img
+          src="/about.jpg"
+          alt="Francisco Mejía"
+          class="h-full w-full object-cover"
+          loading="lazy"
+        />
+      </div>
+
+      <p class="mt-3 text-center text-xs text-neutral-400">
+        <span data-lang="es">Ingeniería · Datos · Software</span>
+        <span data-lang="en">Engineering · Data · Software</span>
       </p>
     </div>
   </div>

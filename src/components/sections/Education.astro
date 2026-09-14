@@ -1,5 +1,6 @@
 ---
 import { educationData } from "@/data/education"
+import SectionTitle from "../common/SectionTitle.astro";
 ---
 
 <section
@@ -7,16 +8,8 @@ import { educationData } from "@/data/education"
   class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
   aria-label="Education"
 >
-  <div
-    class="sticky top-0 z-20 -mx-6 mb-8 w-screen px-6 py-3 backdrop-blur-lg md:-mx-12 md:px-12 lg:relative lg:mx-auto lg:w-full lg:px-0"
-  >
-    <h2
-      class="text-sm font-medium tracking-widest text-neutral-700 uppercase dark:text-neutral-300"
-    >
-      <span data-lang="es">Educación</span>
-      <span data-lang="en">Education</span>
-    </h2>
-  </div>
+
+<SectionTitle en="Education" es="Educación"/>
 
   <div class="space-y-8">
     {

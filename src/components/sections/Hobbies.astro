@@ -1,6 +1,7 @@
 ---
 import { hobbiesData } from "@/data/hobbies"
 import { HobbiesCarousel } from "../common/HobbiesCarousel"
+import SectionTitle from "../common/SectionTitle.astro"
 ---
 
 <section
@@ -8,14 +9,6 @@ import { HobbiesCarousel } from "../common/HobbiesCarousel"
   class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
   aria-label="Hobbies"
 >
-  <div
-    class="sticky top-0 z-20 -mx-6 mb-6 w-screen px-6 py-3 backdrop-blur-lg md:-mx-12 md:px-12 lg:relative lg:mx-auto lg:w-full lg:px-0"
-  >
-    <h2 class="text-sm font-bold tracking-widest text-neutral-200 uppercase">
-      <span data-lang="es">Hobbies</span>
-      <span data-lang="en">Hobbies</span>
-    </h2>
-  </div>
-
+  <SectionTitle en="Hobbies" es="Hobbies" />
   <HobbiesCarousel hobbies={hobbiesData} autoplay client:only />
 </section>

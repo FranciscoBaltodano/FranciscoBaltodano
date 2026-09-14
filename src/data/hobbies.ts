@@ -11,45 +11,45 @@ export const hobbiesData: HobbyItem[] = [
     name: "Ajedrez",
     name_en: "Chess",
     description:
-      "Me gusta jugar ajedrez para desarrollar el pensamiento estratégico, la concentración y la capacidad de resolver problemas.",
+      "Practico ajedrez como una forma de fortalecer el pensamiento estratégico, la concentración y el análisis de diferentes escenarios antes de tomar decisiones.",
     description_en:
-      "I enjoy playing chess to develop strategic thinking, concentration, and problem-solving skills.",
+      "I practice chess to strengthen strategic thinking, concentration, and the ability to analyze different scenarios before making decisions.",
     img: "/hobbies/CHESS.png",
   },
   {
     name: "Programación",
     name_en: "Programming",
     description:
-      "Disfruto crear proyectos personales, experimentar con nuevas tecnologías y seguir aprendiendo sobre desarrollo de software.",
+      "Desarrollo proyectos personales para explorar nuevas tecnologías, resolver problemas y mantener una práctica constante de aprendizaje y experimentación.",
     description_en:
-      "I enjoy building personal projects, experimenting with new technologies, and continuously learning about software development.",
+      "I build personal projects to explore new technologies, solve problems, and maintain a consistent practice of learning and experimentation.",
     img: "/hobbies/PROGRAMING.jpg",
   },
   {
-    name: "Duolingo",
-    name_en: "Duolingo",
+    name: "Idiomas",
+    name_en: "Languages",
     description:
-      "Utilizo Duolingo para practicar idiomas y mantener el hábito de aprendizaje de forma constante.",
+      "Estudio idiomas de forma constante para ampliar mis habilidades de comunicación y mantener una mentalidad orientada al aprendizaje continuo.",
     description_en:
-      "I use Duolingo to practice languages and maintain a consistent learning habit.",
+      "I study languages consistently to strengthen my communication skills and maintain a mindset focused on continuous learning.",
     img: "/hobbies/DUOLINGO.png",
   },
   {
     name: "Caminatas",
     name_en: "Walking",
     description:
-      "Disfruto salir a caminar para despejar la mente, conocer nuevos lugares y mantenerme activo.",
+      "Disfruto caminar para desconectarme de la rutina, explorar nuevos lugares y mantener un equilibrio entre concentración, actividad física y tiempo personal.",
     description_en:
-      "I enjoy going for walks to clear my mind, explore new places, and stay active.",
+      "I enjoy walking to disconnect from routine, explore new places, and maintain a balance between focus, physical activity, and personal time.",
     img: "/hobbies/WALKING.jpg",
   },
   {
     name: "Videojuegos",
-    name_en: "VideoGames",
+    name_en: "Video Games",
     description:
-      "Me gusta jugar videojuegos y combinarlo con mi pasion por la programación",
+      "Los videojuegos forman parte de mi interés por la tecnología y el entretenimiento interactivo, especialmente por los retos de lógica, estrategia y resolución de problemas.",
     description_en:
-      "I enjoy playing videogames and combining it with programing",
+      "Video games are part of my interest in technology and interactive entertainment, particularly for their challenges involving logic, strategy, and problem-solving.",
     img: "/hobbies/VIDEOGAMES.avif",
   },
 ]
