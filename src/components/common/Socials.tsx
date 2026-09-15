@@ -9,14 +9,14 @@ const socials = [
   {
     name: "GitHub",
     url: "https://github.com/FranciscoBaltodano",
-    image: "/socials/github.png",
+    image: "/socials/github.webp",
     description: "Mis proyectos y código fuente",
     description_en: "My projects and source code",
   },
   {
     name: "LinkedIn",
     url: "https://linkedin.com/in/FranciscoBaltodano",
-    image: "/socials/linkedin.png",
+    image: "/socials/linkedin.webp",
     description: "Mi perfil profesional",
     description_en: "My professional profile",
   },

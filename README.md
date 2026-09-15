@@ -24,7 +24,7 @@ workflows**.
 ## 🖥️ This is me irl
 
 <p align="center">
-  <img src="./public/computer.jpg" width="200" alt="Francisco working very hard" />
+  <img src="./public/computer.webp" width="200" alt="Francisco working very hard" />
 </p>
 
 ---

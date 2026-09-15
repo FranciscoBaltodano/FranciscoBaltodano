@@ -26,7 +26,7 @@ export const experiencenData: ExperienceItem[] = [
     ],
     period: "Mar 2026 – Actualidad",
     period_en: "Mar 2026 – Present",
-    logo: "/experience/FICOHSA.jpg",
+    logo: "/experience/FICOHSA.webp",
   },
 
   {
@@ -45,7 +45,7 @@ export const experiencenData: ExperienceItem[] = [
     ],
     period: "Jul 2025 – Mar 2026",
     period_en: "Jul 2025 – Mar 2026",
-    logo: "/experience/INGENIERIA_DIGITAL.png",
+    logo: "/experience/INGENIERIA_DIGITAL.webp",
   },
 
   {
@@ -64,7 +64,7 @@ export const experiencenData: ExperienceItem[] = [
     ],
     period: "Jul 2025 – Nov 2025",
     period_en: "Jul 2025 – Nov 2025",
-    logo: "/experience/MEDICATEL.png",
+    logo: "/experience/MEDICATEL.webp",
   },
 
   {
@@ -81,6 +81,6 @@ export const experiencenData: ExperienceItem[] = [
     ],
     period: "Ene 2025 – May 2025",
     period_en: "Jan 2025 – May 2025",
-    logo: "/experience/GUABABIT.png",
+    logo: "/experience/GUABABIT.webp",
   },
 ]

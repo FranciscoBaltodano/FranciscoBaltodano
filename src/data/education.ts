@@ -17,7 +17,7 @@ export const educationData: EducationItem[] = [
     location: "Ciudad de México, México",
     period: "Ago 2026 – Actualidad",
     period_en: "Aug 2026 – Present",
-    logo: "/education/UNIR.png",
+    logo: "/education/UNIR.webp",
   },
   {
     institution: "Oracle Next Education",
@@ -26,7 +26,7 @@ export const educationData: EducationItem[] = [
     location: "Tegucigalpa, Honduras",
     period: "Ago 2025 – Ene 2026",
     period_en: "Aug 2025 – Jan 2026",
-    logo: "/education/ONE.png",
+    logo: "/education/ONE.webp",
     certificate:
       "https://app.aluracursos.com/program/certificate/b510e6a8-4db1-4734-b039-07f219a683a0?lang",
   },
