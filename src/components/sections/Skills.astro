@@ -10,7 +10,7 @@ import SectionTitle from "../common/SectionTitle.astro"
 >
   <SectionTitle en="Skills" es="Habilidades" />
 
-  <div class="space-y-10">
+  <div class="grid gap-10 md:grid-cols-2">
     {
       skills.map((category) => (
         <div>
@@ -23,7 +23,7 @@ import SectionTitle from "../common/SectionTitle.astro"
             <div class="h-px flex-1 bg-neutral-200 dark:bg-neutral-800" />
           </div>
 
-          <ul class="flex flex-wrap gap-x-8 gap-y-8">
+          <ul class="flex flex-wrap justify-around gap-x-8 gap-y-8 md:justify-end">
             {category.skills.map((tech) => (
               <li class="group flex w-16 flex-col items-center">
                 <div class="flex h-12 w-12 items-center justify-center transition-transform duration-300 group-hover:scale-150">

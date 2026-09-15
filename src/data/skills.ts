@@ -41,8 +41,10 @@ import Fabric from "@/components/icons/skills/fabric.astro"
 import Jmeter from "@/components/icons/skills/jmeter.astro"
 import N8N from "@/components/icons/skills/n8n.astro"
 import Playwright from "@/components/icons/skills/playwright.astro"
+import Postman from "@/components/icons/skills/postman.astro"
 import Scrum from "@/components/icons/skills/scrum.astro"
 import Selenium from "@/components/icons/skills/selenium.astro"
+import Sonarqube from "@/components/icons/skills/sonarqube.astro"
 
 export interface Skill {
   name: string
@@ -56,20 +58,20 @@ export interface SkillCategory {
 }
 
 export const skills: SkillCategory[] = [
-  {
-    category: "Frontend",
-    category_en: "Frontend",
-    skills: [
-      // { name: "Astro", icon: astro },
-      // { name: "JavaScript", icon: javascript },
-      { name: "TypeScript", icon: typescript },
-      { name: "Next.js", icon: next },
-      { name: "React Native", icon: react },
-      // { name: "Laravel", icon: laravelicon },
-      { name: "TanStack", icon: tanstack },
-      // { name: "Redux", icon: redux },
-    ],
-  },
+  // {
+  //   category: "Frontend",
+  //   category_en: "Frontend",
+  //   skills: [
+  //     // { name: "Astro", icon: astro },
+  //     // { name: "JavaScript", icon: javascript },
+  //     { name: "TypeScript", icon: typescript },
+  //     { name: "Next.js", icon: next },
+  //     { name: "React Native", icon: react },
+  //     // { name: "Laravel", icon: laravelicon },
+  //     { name: "TanStack", icon: tanstack },
+  //     // { name: "Redux", icon: redux },
+  //   ],
+  // },
 
   // {
   //   category: "UI / Diseño",
@@ -82,17 +84,37 @@ export const skills: SkillCategory[] = [
   //   ],
   // },
 
+  // {
+  //   category: "Backend",
+  //   category_en: "Backend",
+  //   skills: [
+  //     { name: "Express", icon: express },
+  //     { name: "Node.js", icon: node },
+  //     { name: "Spring Boot", icon: springboot },
+  //     { name: "Python", icon: python },
+  //   ],
+  // },
+
   {
-    category: "Backend",
-    category_en: "Backend",
+    category: "QA / Testing",
+    category_en: "QA / Testing",
     skills: [
-      { name: "Express", icon: express },
-      { name: "Node.js", icon: node },
-      { name: "Spring Boot", icon: springboot },
-      { name: "Python", icon: python },
+      { name: "Playwright", icon: Playwright },
+      { name: "Selenium", icon: Selenium },
+      { name: "JMeter", icon: Jmeter },
+      { name: "Cucumber", icon: Cucumber },
     ],
   },
-
+  {
+    category: "Automatización / Calidad",
+    category_en: "Automation / Quality",
+    skills: [
+      { name: "n8n", icon: N8N },
+      { name: "Postman", icon: Postman },
+      { name: "SonarQube", icon: Sonarqube },
+      { name: "Claude", icon: Claude },
+    ],
+  },
   {
     category: "Bases de Datos",
     category_en: "Databases",
@@ -131,22 +153,10 @@ export const skills: SkillCategory[] = [
   },
 
   {
-    category: "QA / Automatización",
-    category_en: "QA testing / Automation",
-    skills: [
-      { name: "Playwright", icon: Playwright },
-      { name: "Selenium", icon: Selenium },
-      { name: "n8n", icon: N8N },
-      { name: "Claude", icon: Claude },
-      { name: "Jmeter", icon: Jmeter },
-      { name: "Cucumber", icon: Cucumber },
-    ],
-  },
-  {
     category: "Productividad",
     category_en: "Productivity",
     skills: [
-      { name: "ClickUp", icon: clickup },
+      // { name: "ClickUp", icon: clickup },
       { name: "Jira", icon: jira },
       { name: "Slack", icon: slack },
       { name: "Azure Devops", icon: Azure },

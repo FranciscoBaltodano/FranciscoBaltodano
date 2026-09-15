@@ -1,5 +1,11 @@
 import { IconDownload } from "@tabler/icons-react"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 import { useEffect, useState } from "react"
+import { Button } from "../ui/button"
 
 export function CVDownload() {
   const [language, setLanguage] = useState<"es" | "en">("es")
@@ -25,14 +31,18 @@ export function CVDownload() {
     language === "en"
       ? "/cv/Resume_FranciscoBaltodano.pdf"
       : "/cv/CV_FranciscoBaltodano.pdf"
+
   return (
-    <a
-      href={cvPath}
-      download
-      className="inline-flex items-center gap-2 text-sm font-medium text-neutral-600 transition-colors hover:text-neutral-950 dark:text-neutral-400 dark:hover:text-white"
+    <Button
+      variant="outline"
+      size="icon"
+      render={<a href={cvPath} target="_blank" rel="noopener noreferrer" />}
     >
-      <span>{language === "en" ? "Download CV" : "Descargar CV"}</span>
-      <IconDownload className="h-4 w-4" />
-    </a>
+      <IconDownload className="h-[1.2rem] w-[1.2rem]" />
+
+      <span className="sr-only">
+        {language === "en" ? "Download CV" : "Descargar CV"}
+      </span>
+    </Button>
   )
 }
