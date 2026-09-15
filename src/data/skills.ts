@@ -36,9 +36,12 @@ import {
 } from "@/components/icons/skills"
 import Azure from "@/components/icons/skills/azure.astro"
 import Claude from "@/components/icons/skills/claude.astro"
+import Cucumber from "@/components/icons/skills/cucumber.astro"
 import Fabric from "@/components/icons/skills/fabric.astro"
+import Jmeter from "@/components/icons/skills/jmeter.astro"
 import N8N from "@/components/icons/skills/n8n.astro"
 import Playwright from "@/components/icons/skills/playwright.astro"
+import Scrum from "@/components/icons/skills/scrum.astro"
 import Selenium from "@/components/icons/skills/selenium.astro"
 
 export interface Skill {
@@ -135,6 +138,8 @@ export const skills: SkillCategory[] = [
       { name: "Selenium", icon: Selenium },
       { name: "n8n", icon: N8N },
       { name: "Claude", icon: Claude },
+      { name: "Jmeter", icon: Jmeter },
+      { name: "Cucumber", icon: Cucumber },
     ],
   },
   {
@@ -145,6 +150,7 @@ export const skills: SkillCategory[] = [
       { name: "Jira", icon: jira },
       { name: "Slack", icon: slack },
       { name: "Azure Devops", icon: Azure },
+      { name: "Scrum", icon: Scrum },
       // { name: "WordPress", icon: wordpress },
     ],
   },
