@@ -1,9 +1,4 @@
 import { IconDownload } from "@tabler/icons-react"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
 import { useEffect, useState } from "react"
 import { Button } from "../ui/button"
 

@@ -1,11 +1,11 @@
-import * as React from "react"
 import { Moon, Sun } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useEffect, useState } from "react"
 
 export function ModeToggle() {
-  const [isDark, setIsDark] = React.useState(false)
+  const [isDark, setIsDark] = useState(false)
 
-  React.useEffect(() => {
+  useEffect(() => {
     const darkMode = document.documentElement.classList.contains("dark")
     setIsDark(darkMode)
   }, [])
@@ -28,9 +28,7 @@ export function ModeToggle() {
 
       <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
 
-      <span className="sr-only">
-        Tema
-      </span>
+      <span className="sr-only">Tema</span>
     </Button>
   )
 }

@@ -1,0 +1,231 @@
+---
+interface Hobby {
+  name: string
+  name_en: string
+  description: string
+  description_en: string
+  img: string
+}
+
+interface Props {
+  hobbies: Hobby[]
+  autoplay?: boolean
+}
+
+const { hobbies, autoplay = false } = Astro.props
+---
+
+<div
+  class="mx-auto max-w-sm px-4 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12"
+  data-carousel
+  data-autoplay={autoplay}
+>
+  <div class="relative grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-20">
+    <!-- Images -->
+    <div class="relative h-50 w-full md:h-80">
+      {
+        hobbies.map((hobby, index) => (
+          <div
+            class:list={[
+              "hobby-image absolute inset-0 origin-bottom",
+              index === 0 && "is-active",
+            ]}
+            data-index={index}
+          >
+            <img
+              src={hobby.img}
+              alt={hobby.name}
+              width="500"
+              height="500"
+              draggable="false"
+              loading={"lazy"}
+              class="h-full w-full rounded-3xl object-cover object-center"
+            />
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Content -->
+    <div class="flex flex-col">
+      <div class="hobby-content-wrapper">
+        {
+          hobbies.map((hobby, index) => (
+            <div
+              class:list={["hobby-content", index === 0 && "is-active"]}
+              data-index={index}
+            >
+              <h3 class="text-2xl font-medium tracking-tight text-neutral-900 dark:text-white">
+                <span data-lang="es">{hobby.name}</span>
+                <span data-lang="en">{hobby.name_en}</span>
+              </h3>
+
+              <p class="mt-6 text-base leading-7 text-neutral-600 dark:text-neutral-400">
+                <span data-lang="es">{hobby.description}</span>
+                <span data-lang="en">{hobby.description_en}</span>
+              </p>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Controls -->
+      <div class="mt-8 flex gap-3">
+        <button
+          type="button"
+          data-prev
+          aria-label="Previous hobby"
+          class="group flex h-9 w-9 items-center justify-center rounded-full bg-neutral-100 transition-colors hover:bg-emerald-100 dark:bg-neutral-800 dark:hover:bg-neutral-700"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            class="h-4 w-4 text-neutral-600 transition-transform duration-300 group-hover:-translate-x-0.5 dark:text-neutral-300"
+            aria-hidden="true"
+          >
+            <path d="m15 18-6-6 6-6"></path>
+          </svg>
+        </button>
+
+        <button
+          type="button"
+          data-next
+          aria-label="Next hobby"
+          class="group flex h-9 w-9 items-center justify-center rounded-full bg-neutral-100 transition-colors hover:bg-emerald-100 dark:bg-neutral-800 dark:hover:bg-neutral-700"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            class="h-4 w-4 text-neutral-600 transition-transform duration-300 group-hover:translate-x-0.5 dark:text-neutral-300"
+            aria-hidden="true"
+          >
+            <path d="m9 18 6-6-6-6"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const carousels = document.querySelectorAll("[data-carousel]")
+
+  carousels.forEach((carousel) => {
+    const images = carousel.querySelectorAll(".hobby-image")
+    const contents = carousel.querySelectorAll(".hobby-content")
+    const prev = carousel.querySelector("[data-prev]")
+    const next = carousel.querySelector("[data-next]")
+
+    if (!images.length || !contents.length) return
+
+    let active = 0
+    let interval
+
+    const show = (index) => {
+      active = (index + images.length) % images.length
+
+      images.forEach((image, i) => {
+        image.classList.toggle("is-active", i === active)
+      })
+
+      contents.forEach((content, i) => {
+        content.classList.toggle("is-active", i === active)
+      })
+    }
+
+    prev?.addEventListener("click", () => {
+      show(active - 1)
+    })
+
+    next?.addEventListener("click", () => {
+      show(active + 1)
+    })
+
+    if (carousel.dataset.autoplay === "true" && images.length > 1) {
+      interval = setInterval(() => {
+        show(active + 1)
+      }, 5000)
+    }
+
+    window.addEventListener("beforeunload", () => {
+      if (interval) {
+        clearInterval(interval)
+      }
+    })
+  })
+</script>
+
+<style>
+  .hobby-image {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.9) rotate(-4deg);
+    transition:
+      opacity 0.4s ease-in-out,
+      transform 0.4s ease-in-out;
+  }
+
+  .hobby-image.is-active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1) rotate(0deg);
+    animation: hobby-float 5s ease-in-out infinite;
+  }
+
+  .hobby-content-wrapper {
+    position: relative;
+    min-height: 190px;
+  }
+
+  .hobby-content {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition:
+      opacity 0.2s ease-in-out,
+      transform 0.2s ease-in-out;
+  }
+
+  .hobby-content.is-active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  [data-lang="en"] {
+    display: none;
+  }
+
+  html[lang="en"] [data-lang="es"] {
+    display: none;
+  }
+
+  html[lang="en"] [data-lang="en"] {
+    display: inline;
+  }
+
+  @keyframes hobby-float {
+    0%,
+    100% {
+      transform: scale(1) translateY(0) rotate(0deg);
+    }
+
+    50% {
+      transform: scale(1) translateY(-20px) rotate(0deg);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hobby-image,
+    .hobby-content {
+      transition: none;
+      animation: none;
+    }
+  }
+</style>

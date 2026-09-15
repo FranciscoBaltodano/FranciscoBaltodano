@@ -1,4 +1,3 @@
-import * as React from "react"
 import { Globe } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
@@ -9,19 +8,20 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 import { updateLanguageDOM } from "@/lib/lenguage"
+import { useEffect, useState } from "react"
 
 export function LanguageToggle() {
-  const [isEnglish, setIsEnglish] = React.useState(false)
+  const [isEnglish, setIsEnglish] = useState(false)
 
-  React.useEffect(() => {
-    const isEng = localStorage.getItem('isEnglish') === 'true'
+  useEffect(() => {
+    const isEng = localStorage.getItem("isEnglish") === "true"
     setIsEnglish(isEng)
     updateLanguageDOM()
   }, [])
 
   const handleLanguageChange = (isEng: boolean) => {
     setIsEnglish(isEng)
-    localStorage.setItem('isEnglish', isEng.toString())
+    localStorage.setItem("isEnglish", isEng.toString())
     updateLanguageDOM()
   }
 

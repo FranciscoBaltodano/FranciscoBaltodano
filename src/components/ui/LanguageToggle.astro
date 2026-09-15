@@ -1,0 +1,29 @@
+---
+import { Globe } from "lucide-react"
+import { Button } from "@/components/ui/button"
+---
+
+<Button
+  id="language-toggle"
+  variant="outline"
+  size="icon"
+  type="button"
+  aria-label="Cambiar idioma"
+>
+  <Globe />
+  <span class="sr-only">Cambiar idioma</span>
+</Button>
+
+<script>
+  import { updateLanguageDOM } from "@/lib/lenguage"
+
+  const button = document.querySelector("#language-toggle")
+
+  button?.addEventListener("click", () => {
+    const isEnglish = localStorage.getItem("isEnglish") === "true"
+
+    localStorage.setItem("isEnglish", (!isEnglish).toString())
+
+    updateLanguageDOM()
+  })
+</script>

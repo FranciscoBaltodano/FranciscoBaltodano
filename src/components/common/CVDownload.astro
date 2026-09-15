@@ -1,0 +1,46 @@
+---
+import { IconDownload } from "@tabler/icons-react"
+import { Button } from "../ui/button"
+---
+
+<Button id="cv-download" variant="outline" size="icon">
+  <a
+    id="cv-link"
+    href="/cv/CV_FranciscoBaltodano.pdf"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <IconDownload />
+  </a>
+</Button>
+
+<script>
+  const link = document.querySelector("#cv-link")
+  const label = document.querySelector("#cv-label")
+
+  const updateCV = () => {
+    const isEnglish = document.documentElement.lang === "en"
+
+    if (link) {
+      link.setAttribute(
+        "href",
+        isEnglish
+          ? "/cv/Resume_FranciscoBaltodano.pdf"
+          : "/cv/CV_FranciscoBaltodano.pdf"
+      )
+    }
+
+    if (label) {
+      label.textContent = isEnglish ? "Download CV" : "Descargar CV"
+    }
+  }
+
+  updateCV()
+
+  const observer = new MutationObserver(updateCV)
+
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["lang"],
+  })
+</script>
