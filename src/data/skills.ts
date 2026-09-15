@@ -1,50 +1,28 @@
 import {
-  astro,
-  bootstrap,
-  clickup,
   cloudflare,
-  excel,
-  express,
-  figma,
   github,
-  javascript,
   jira,
-  laravelicon,
-  materialui,
-  mongo,
   mysql,
-  netlify,
-  next,
-  node,
   oracle,
   postgresql,
   powerbi,
-  python,
-  react,
-  redux,
   slack,
-  springboot,
   sqlserver,
-  supabase,
   tableau,
-  tailwind,
-  tanstack,
   terraform,
-  typescript,
   vercel,
-  wordpress,
 } from "@/components/icons/skills"
-import Azure from "@/components/icons/skills/azure.astro"
-import Claude from "@/components/icons/skills/claude.astro"
-import Cucumber from "@/components/icons/skills/cucumber.astro"
-import Fabric from "@/components/icons/skills/fabric.astro"
-import Jmeter from "@/components/icons/skills/jmeter.astro"
-import N8N from "@/components/icons/skills/n8n.astro"
-import Playwright from "@/components/icons/skills/playwright.astro"
-import Postman from "@/components/icons/skills/postman.astro"
-import Scrum from "@/components/icons/skills/scrum.astro"
-import Selenium from "@/components/icons/skills/selenium.astro"
-import Sonarqube from "@/components/icons/skills/sonarqube.astro"
+import Azure from "@/components/icons/skills/azure.svg"
+import Claude from "@/components/icons/skills/claude.svg"
+import Cucumber from "@/components/icons/skills/cucumber.svg"
+import Fabric from "@/components/icons/skills/fabric.svg"
+import Jmeter from "@/components/icons/skills/jmeter.svg"
+import N8N from "@/components/icons/skills/n8n.svg"
+import Playwright from "@/components/icons/skills/playwright.svg"
+import Postman from "@/components/icons/skills/postman.svg"
+import Scrum from "@/components/icons/skills/scrum.svg"
+import Selenium from "@/components/icons/skills/selenium.svg"
+import Sonarqube from "@/components/icons/skills/sonarqube.svg"
 
 export interface Skill {
   name: string
