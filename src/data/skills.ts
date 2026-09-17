@@ -90,7 +90,7 @@ export const skills: SkillCategory[] = [
       { name: "n8n", icon: N8N },
       { name: "Postman", icon: Postman },
       { name: "SonarQube", icon: Sonarqube },
-      { name: "Claude", icon: Claude },
+      { name: "Claude Code", icon: Claude },
     ],
   },
   {
