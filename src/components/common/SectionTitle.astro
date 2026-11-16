@@ -8,12 +8,39 @@ const { es, en } = Astro.props
 ---
 
 <div
-  class="sticky top-0 z-20 -mx-6 mb-8 w-screen px-6 py-3 backdrop-blur-lg md:-mx-12 md:px-12 lg:relative lg:mx-auto lg:w-full lg:px-0"
+  class="sticky top-0 z-999 mb-8 w-fit max-w-full border-b border-neutral-200/50 bg-transparent px-4 py-3 backdrop-blur-none md:static md:z-auto md:mb-8 md:w-full md:border-0 md:bg-transparent md:px-0 md:py-2 md:backdrop-blur-none dark:border-neutral-800/50"
 >
-  <h2
-    class="text-sm font-medium tracking-widest text-neutral-700 uppercase dark:text-neutral-300"
-  >
-    <span data-lang="es">{es}</span>
-    <span data-lang="en">{en}</span>
-  </h2>
+  <div class="flex items-center gap-4">
+    <!-- Acento visual -->
+    <div class="h-9 w-1 rounded-full bg-emerald-700 dark:bg-emerald-400"></div>
+
+    <!-- Título -->
+    <div class="min-w-0">
+      <p
+        class="mb-0.5 text-[10px] font-semibold tracking-[0.25em] text-emerald-800 uppercase dark:text-emerald-400"
+      >
+        <span data-lang="es">Mi trayectoria</span>
+        <span data-lang="en">My journey</span>
+      </p>
+
+      <h2
+        class="font-serif text-2xl font-medium tracking-tight text-neutral-900 sm:text-3xl dark:text-white"
+      >
+        <span data-lang="es">{es}</span>
+        <span data-lang="en">{en}</span>
+      </h2>
+    </div>
+
+    <!-- Línea decorativa -->
+    <div
+      class="ml-auto hidden h-px flex-1 bg-linear-to-r from-emerald-700/40 to-transparent md:block dark:from-emerald-400/40"
+    >
+    </div>
+
+    <span
+      class="hidden text-xs font-medium tracking-widest text-emerald-700/40 md:block dark:text-neutral-600"
+    >
+      ✳
+    </span>
+  </div>
 </div>
