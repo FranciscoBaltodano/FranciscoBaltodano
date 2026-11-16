@@ -23,9 +23,9 @@ import SectionTitle from "../common/SectionTitle.astro"
             <div class="h-px flex-1 bg-neutral-200 dark:bg-neutral-800" />
           </div>
 
-          <ul class="flex flex-wrap justify-around gap-x-8 gap-y-8 md:justify-end">
+          <ul class="flex justify-around gap-x-8 gap-y-8 md:justify-end">
             {category.skills.map((tech) => (
-              <li class="group flex w-16 flex-col items-center">
+              <li class="group flex w-full max-w-16 flex-col items-center">
                 <div class="flex h-12 w-12 items-center justify-center transition-transform duration-300 group-hover:scale-150">
                   <tech.icon class="h-10 w-10" />
                 </div>

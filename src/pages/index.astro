@@ -11,12 +11,12 @@ import Hero from "@/components/sections/Hero.astro"
 import Footer from "@/components/sections/Footer.astro"
 ---
 
-<Layout class="bg-blue-400">
+<Layout>
   <div>
     <Navbar />
-    <div class="flex flex-col items-center p-6">
+    <div class="flex w-full flex-col items-center px-4 py-6 sm:px-6">
       <div
-        class="mt-8 flex w-full max-w-3xl flex-col gap-12 text-sm leading-loose"
+        class="mt-8 flex w-full max-w-3xl min-w-0 flex-col gap-12 text-sm leading-loose"
       >
         <Hero />
         <AboutMe />

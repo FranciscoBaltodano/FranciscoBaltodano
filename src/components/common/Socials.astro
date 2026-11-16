@@ -34,7 +34,9 @@ const socials = [
           </span>
         </a>
 
-        <div class="pointer-events-none absolute bottom-full left-1 z-50 w-72 pb-2 opacity-0 transition-opacity duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
+        
+        <!-- Vista previa para escritorio -->
+        <div class="pointer-events-none absolute bottom-full left-0 z-50 hidden w-72 pb-2 opacity-0 transition-opacity duration-200 group-hover:pointer-events-auto group-hover:opacity-100 md:block">
           <div class="translate-y-2 transition-transform duration-200 group-hover:translate-y-0">
             <a
               href={social.url}
@@ -71,6 +73,7 @@ const socials = [
             </a>
           </div>
         </div>
+        
       </div>
     ))
   }
