@@ -1,14 +1,8 @@
 ---
-interface Hobby {
-  name: string
-  name_en: string
-  description: string
-  description_en: string
-  img: string
-}
+import { type HobbyItem } from "@/data/hobbies"
 
 interface Props {
-  hobbies: Hobby[]
+  hobbies: HobbyItem[]
 }
 
 const { hobbies } = Astro.props
@@ -19,7 +13,12 @@ const { hobbies } = Astro.props
   data-carousel
 >
   <!-- Perfil -->
-  <div class="flex items-center gap-3 p-4">
+  <a
+    href="https://www.instagram.com/ifranciscobaltodano/"
+    class="flex items-center gap-3 p-4"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
     <img
       src="/me.webp"
       alt="Francisco Mejía"
@@ -32,7 +31,7 @@ const { hobbies } = Astro.props
         <span data-lang="en">A little about me</span>
       </p>
     </div>
-  </div>
+  </a>
 
   <!-- Imágenes -->
   <div

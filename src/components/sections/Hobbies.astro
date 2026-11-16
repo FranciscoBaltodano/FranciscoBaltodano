@@ -2,7 +2,6 @@
 import { hobbiesData } from "@/data/hobbies"
 import SectionTitle from "../common/SectionTitle.astro"
 import HobbiesCarousel from "../common/HobbiesCarousel.astro"
-// import { HobbiesCarousel } from "../common/HobbiesCarousel"
 ---
 
 <section
@@ -11,6 +10,5 @@ import HobbiesCarousel from "../common/HobbiesCarousel.astro"
   aria-label="Hobbies"
 >
   <SectionTitle en="Hobbies" es="Hobbies" />
-  <!-- <HobbiesCarousel hobbies={hobbiesData} autoplay client:only /> -->
-  <HobbiesCarousel hobbies={hobbiesData} autoplay />
+  <HobbiesCarousel hobbies={hobbiesData} />
 </section>
