@@ -9,195 +9,288 @@ interface Hobby {
 
 interface Props {
   hobbies: Hobby[]
-  autoplay?: boolean
 }
 
-const { hobbies, autoplay = false } = Astro.props
+const { hobbies } = Astro.props
 ---
 
 <div
-  class="mx-auto max-w-sm px-4 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12"
+  class="mx-auto w-full max-w-md overflow-hidden rounded-2xl border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-950"
   data-carousel
-  data-autoplay={autoplay}
 >
-  <div class="relative grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-20">
-    <!-- Images -->
-    <div class="relative h-50 w-full md:h-80">
+  <!-- Perfil -->
+  <div class="flex items-center gap-3 p-4">
+    <img
+      src="/me.webp"
+      alt="Francisco Mejía"
+      class="h-10 w-10 rounded-full object-cover"
+    />
+    <div>
+      <p class="text-sm font-semibold">ifranciscobaltodano</p>
+      <p class="text-xs text-neutral-500">
+        <span data-lang="es">Un poco sobre mí</span>
+        <span data-lang="en">A little about me</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- Imágenes -->
+  <div
+    class="group relative aspect-[4/3] overflow-hidden bg-neutral-100 dark:bg-neutral-900"
+    data-slider
+  >
+    {
+      hobbies.map((hobby, index) => (
+        <img
+          src={hobby.img}
+          alt={hobby.name}
+          class="hobby-image absolute inset-0 h-full w-full object-cover"
+          hidden={index !== 0}
+          draggable="false"
+        />
+      ))
+    }
+
+    <!-- Indicadores de navegación para escritorio -->
+    <div
+      class="pointer-events-none absolute inset-0 hidden items-center justify-between px-3 md:flex"
+    >
+      <span
+        class="flex h-8 w-8 items-center justify-center rounded-full bg-black/40 text-white opacity-0 transition-opacity group-hover:opacity-100"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          class="h-5 w-5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="m15 18-6-6 6-6"></path>
+        </svg>
+      </span>
+      <span
+        class="flex h-8 w-8 items-center justify-center rounded-full bg-black/40 text-white opacity-0 transition-opacity group-hover:opacity-100"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          class="h-5 w-5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="m9 18 6-6-6-6"></path>
+        </svg>
+      </span>
+    </div>
+  </div>
+
+  <!-- Acciones y puntos -->
+  <div class="flex items-center justify-between px-4 pt-4">
+    <div class="flex items-center gap-4">
+      <!-- Me gusta -->
+      <button
+        type="button"
+        data-like
+        aria-label="Me gusta"
+        aria-pressed="false"
+        class="transition-colors"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          class="h-6 w-6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+        >
+          <path
+            d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"
+          ></path>
+        </svg>
+      </button>
+
+      <!-- Comentario -->
+      <button
+        type="button"
+        data-comment
+        aria-label="Comentario"
+        class="transition-colors"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          class="h-6 w-6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+        >
+          <path
+            d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 3.9a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z"
+          ></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Puntos -->
+    <div class="flex items-center gap-1.5">
       {
-        hobbies.map((hobby, index) => (
-          <div
+        hobbies.map((_, index) => (
+          <button
+            type="button"
+            data-dot={index}
+            aria-label={`Ir al hobby ${index + 1}`}
+            aria-current={index === 0 ? "true" : "false"}
             class:list={[
-              "hobby-image absolute inset-0 origin-bottom",
-              index === 0 && "is-active",
+              "h-1.5 rounded-full transition-all",
+              index === 0
+                ? "w-5 bg-emerald-700 dark:bg-emerald-400"
+                : "w-1.5 bg-neutral-300 dark:bg-neutral-700",
             ]}
-            data-index={index}
-          >
-            <img
-              src={hobby.img}
-              alt={hobby.name}
-              width="500"
-              height="500"
-              draggable="false"
-              loading={"lazy"}
-              class="h-full w-full rounded-3xl object-cover object-center"
-            />
-          </div>
+          />
         ))
       }
     </div>
 
-    <!-- Content -->
-    <div class="flex flex-col">
-      <div class="hobby-content-wrapper">
-        {
-          hobbies.map((hobby, index) => (
-            <div
-              class:list={["hobby-content", index === 0 && "is-active"]}
-              data-index={index}
-            >
-              <h3 class="text-2xl font-medium tracking-tight text-neutral-900 dark:text-white">
-                <span data-lang="es">{hobby.name}</span>
-                <span data-lang="en">{hobby.name_en}</span>
-              </h3>
+    <!-- Guardar -->
+    <button
+      type="button"
+      data-save
+      aria-label="Guardar"
+      aria-pressed="false"
+      class="transition-colors"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        class="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+      >
+        <path d="M6 4h12v17l-6-4-6 4V4Z"></path>
+      </svg>
+    </button>
+  </div>
 
-              <p class="mt-6 text-base leading-7 text-neutral-600 dark:text-neutral-400">
-                <span data-lang="es">{hobby.description}</span>
-                <span data-lang="en">{hobby.description_en}</span>
-              </p>
-            </div>
-          ))
-        }
-      </div>
-
-      <!-- Controls -->
-      <div class="mt-8 flex gap-3">
-        <button
-          type="button"
-          data-prev
-          aria-label="Previous hobby"
-          class="group flex h-9 w-9 items-center justify-center rounded-full bg-neutral-100 transition-colors hover:bg-emerald-100 dark:bg-neutral-800 dark:hover:bg-neutral-700"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            class="h-4 w-4 text-neutral-600 transition-transform duration-300 group-hover:-translate-x-0.5 dark:text-neutral-300"
-            aria-hidden="true"
-          >
-            <path d="m15 18-6-6 6-6"></path>
-          </svg>
-        </button>
-
-        <button
-          type="button"
-          data-next
-          aria-label="Next hobby"
-          class="group flex h-9 w-9 items-center justify-center rounded-full bg-neutral-100 transition-colors hover:bg-emerald-100 dark:bg-neutral-800 dark:hover:bg-neutral-700"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            class="h-4 w-4 text-neutral-600 transition-transform duration-300 group-hover:translate-x-0.5 dark:text-neutral-300"
-            aria-hidden="true"
-          >
-            <path d="m9 18 6-6-6-6"></path>
-          </svg>
-        </button>
-      </div>
-    </div>
+  <!-- Descripción -->
+  <div class="px-4 pt-4 pb-5">
+    {
+      hobbies.map((hobby, index) => (
+        <div class="hobby-content" hidden={index !== 0}>
+          <h3 class="text-base font-semibold">
+            <span data-lang="es">{hobby.name}</span>
+            <span data-lang="en">{hobby.name_en}</span>
+          </h3>
+          <p class="mt-1 text-sm leading-6 text-neutral-600 dark:text-neutral-400">
+            <span data-lang="es">{hobby.description}</span>
+            <span data-lang="en">{hobby.description_en}</span>
+          </p>
+        </div>
+      ))
+    }
   </div>
 </div>
 
 <script>
-  const carousels = document.querySelectorAll("[data-carousel]")
-
-  carousels.forEach((carousel) => {
+  document.querySelectorAll("[data-carousel]").forEach((carousel) => {
     const images = carousel.querySelectorAll(".hobby-image")
     const contents = carousel.querySelectorAll(".hobby-content")
-    const prev = carousel.querySelector("[data-prev]")
-    const next = carousel.querySelector("[data-next]")
-
-    if (!images.length || !contents.length) return
+    const dots = carousel.querySelectorAll("[data-dot]")
+    const slider = carousel.querySelector("[data-slider]")
+    const like = carousel.querySelector("[data-like]")
+    const save = carousel.querySelector("[data-save]")
+    const comment = carousel.querySelector("[data-comment]")
 
     let active = 0
-    let interval
+    let startX = 0
 
-    const show = (index) => {
+    function show(index) {
+      if (!images.length) return
+
       active = (index + images.length) % images.length
 
       images.forEach((image, i) => {
-        image.classList.toggle("is-active", i === active)
+        image.hidden = i !== active
       })
 
       contents.forEach((content, i) => {
-        content.classList.toggle("is-active", i === active)
+        content.hidden = i !== active
+      })
+
+      dots.forEach((dot, i) => {
+        const selected = i === active
+
+        dot.setAttribute("aria-current", String(selected))
+        dot.classList.toggle("w-5", selected)
+        dot.classList.toggle("w-1.5", !selected)
+        dot.classList.toggle("bg-emerald-700", selected)
+        dot.classList.toggle("dark:bg-emerald-400", selected)
+        dot.classList.toggle("bg-neutral-300", !selected)
+        dot.classList.toggle("dark:bg-neutral-700", !selected)
       })
     }
 
-    prev?.addEventListener("click", () => {
-      show(active - 1)
+    // Navegación por puntos
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => show(index))
     })
 
-    next?.addEventListener("click", () => {
-      show(active + 1)
+    // Navegación por clic en la imagen
+    slider.addEventListener("click", (event) => {
+      const bounds = slider.getBoundingClientRect()
+      const clickedRight = event.clientX > bounds.left + bounds.width / 2
+
+      show(active + (clickedRight ? 1 : -1))
     })
 
-    if (carousel.dataset.autoplay === "true" && images.length > 1) {
-      interval = setInterval(() => {
-        show(active + 1)
-      }, 5000)
-    }
+    // Navegación táctil
+    slider.addEventListener(
+      "touchstart",
+      (event) => {
+        startX = event.touches[0].clientX
+      },
+      { passive: true }
+    )
 
-    window.addEventListener("beforeunload", () => {
-      if (interval) {
-        clearInterval(interval)
-      }
+    slider.addEventListener(
+      "touchend",
+      (event) => {
+        const difference = event.changedTouches[0].clientX - startX
+
+        if (Math.abs(difference) > 40) {
+          show(active + (difference < 0 ? 1 : -1))
+        }
+      },
+      { passive: true }
+    )
+
+    // Me gusta
+    like.addEventListener("click", () => {
+      const liked = like.getAttribute("aria-pressed") !== "true"
+      const icon = like.querySelector("svg")
+
+      like.setAttribute("aria-pressed", String(liked))
+      icon.classList.toggle("text-red-500", liked)
+      icon.classList.toggle("fill-red-500", liked)
     })
+
+    // Guardar
+    save.addEventListener("click", () => {
+      const saved = save.getAttribute("aria-pressed") !== "true"
+      const icon = save.querySelector("svg")
+
+      save.setAttribute("aria-pressed", String(saved))
+      icon.classList.toggle("text-emerald-600", saved)
+      icon.classList.toggle("fill-emerald-600", saved)
+    })
+
+    // Comentario
+    comment.addEventListener("click", () => {
+      comment.querySelector("svg").classList.toggle("text-emerald-600")
+    })
+
+    show(0)
   })
 </script>
 
 <style>
-  .hobby-image {
-    opacity: 0;
-    pointer-events: none;
-    transform: scale(0.9) rotate(-4deg);
-    transition:
-      opacity 0.4s ease-in-out,
-      transform 0.4s ease-in-out;
-  }
-
-  .hobby-image.is-active {
-    opacity: 1;
-    pointer-events: auto;
-    transform: scale(1) rotate(0deg);
-    animation: hobby-float 5s ease-in-out infinite;
-  }
-
-  .hobby-content-wrapper {
-    position: relative;
-    min-height: 190px;
-  }
-
-  .hobby-content {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(20px);
-    transition:
-      opacity 0.2s ease-in-out,
-      transform 0.2s ease-in-out;
-  }
-
-  .hobby-content.is-active {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-  }
-
   [data-lang="en"] {
     display: none;
   }
@@ -210,22 +303,13 @@ const { hobbies, autoplay = false } = Astro.props
     display: inline;
   }
 
-  @keyframes hobby-float {
-    0%,
-    100% {
-      transform: scale(1) translateY(0) rotate(0deg);
-    }
-
-    50% {
-      transform: scale(1) translateY(-20px) rotate(0deg);
-    }
+  [data-slider] {
+    touch-action: pan-y;
+    user-select: none;
+    cursor: pointer;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .hobby-image,
-    .hobby-content {
-      transition: none;
-      animation: none;
-    }
+  [data-slider] img {
+    pointer-events: none;
   }
 </style>
